@@ -1158,102 +1158,42 @@
         let markers = [];
         let hotelData = [
             {
-                name: "秋果酒店（福民地铁站店）",
-                position: [114.057, 22.523],
-                price: "￥240起",
-                rating: "4.8分",
-                type: "hotel",
-                color: "#e74c3c"
-            },
-            {
-                name: "皇朝商务酒店（福田口岸店）",
-                position: [114.065, 22.520],
-                price: "￥206起",
-                rating: "4.6分",
-                type: "hotel",
-                color: "#3498db"
-            },
-            {
-                name: "锦江之星（福民地铁站店）",
-                position: [114.058, 22.524],
-                price: "￥201起",
+                name: "汉庭（深圳皇岗店）",
+                position: [114.068, 22.520],
+                price: "￥270起/晚",
                 rating: "4.5分",
+                type: "hotel",
+                color: "#00a699"
+            },
+            {
+                name: "锦江之星（深圳福田皇岗口岸地铁站店）",
+                position: [114.065, 22.521],
+                price: "￥204起/晚",
+                rating: "4.6分",
                 type: "hotel",
                 color: "#2ecc71"
             },
             {
-                name: "麗枫酒店（会展中心口岸店）",
-                position: [114.055, 22.526],
-                price: "￥257起",
+                name: "锦江之星风尚（深圳福田会展中心福民地铁站店）",
+                position: [114.058, 22.524],
+                price: "￥260起/晚",
+                rating: "4.5分",
+                type: "hotel",
+                color: "#27ae60"
+            },
+            {
+                name: "维也纳酒店（福田会展中心口岸店）",
+                position: [114.060, 22.525],
+                price: "￥252起/晚",
                 rating: "4.5分",
                 type: "hotel",
                 color: "#f39c12"
-            },
-            {
-                name: "雅庭精品酒店（口岸会展中心店）",
-                position: [114.045, 22.528],
-                price: "￥300起",
-                rating: "4.6分",
-                type: "hotel",
-                color: "#9b59b6"
-            },
-            {
-                name: "钥匙之家（罗湖口岸品城店）",
-                position: [114.120, 22.548],
-                price: "￥221起",
-                rating: "4.6分",
-                type: "hotel",
-                color: "#1abc9c"
-            },
-            {
-                name: "全季酒店（皇岗店）",
-                position: [114.070, 22.518],
-                price: "￥350起",
-                rating: "9.3/10",
-                type: "hotel",
-                color: "#e67e22"
-            },
-            {
-                name: "福田皇岗城际酒店",
-                position: [114.075, 22.515],
-                price: "￥600起",
-                rating: "9.7/10",
-                type: "hotel",
-                color: "#e74c3c"
-            },
-            // 华住会旗下酒店
-            {
-                name: "全季酒店（华强北华强路地铁站店）",
-                position: [114.085, 22.543],
-                price: "￥470起",
-                rating: "4.7分",
-                type: "hotel",
-                color: "#ff6b35"
-            },
-            {
-                name: "全季酒店（会展中心岗厦地铁站店）",
-                position: [114.070, 22.535],
-                price: "￥611起",
-                rating: "4.4分",
-                type: "hotel",
-                color: "#ff6b35"
-            },
-            {
-                name: "汉庭（会展中心福星地铁站店）",
-                position: [114.105, 22.538],
-                price: "￥382起",
-                rating: "4.6分",
-                type: "hotel",
-                color: "#00a699"
-            },
-            {
-                name: "汉庭（深圳皇岗店）",
-                position: [114.068, 22.520],
-                price: "￥270起",
-                rating: "4.6分",
-                type: "hotel",
-                color: "#00a699"
             }
+        ];
+
+        let checkpoints = [
+            {name: "福田口岸", position: [114.066, 22.518], type: "checkpoint"},
+            {name: "皇岗口岸", position: [114.072, 22.522], type: "checkpoint"}
         ];
 
         let hkDestinations = [
@@ -1293,6 +1233,28 @@
                 marker.on('click', function() {
                     new AMap.InfoWindow({
                         content: '<div style="padding:10px;"><strong>' + hotel.name + '</strong><br/>价格: ' + hotel.price + '<br/>评分: ' + hotel.rating + '</div>',
+                        offset: new AMap.Pixel(0, -30)
+                    }).open(map, marker.getPosition());
+                });
+
+                markers.push(marker);
+                map.add(marker);
+            });
+
+            checkpoints.forEach((cp) => {
+                let marker = new AMap.Marker({
+                    position: cp.position,
+                    title: cp.name,
+                    icon: new AMap.Icon({
+                        size: new AMap.Size(25, 34),
+                        image: 'https://webapi.amap.com/theme/v1.3/markers/n/mark_p.png',
+                        imageSize: new AMap.Size(25, 34)
+                    })
+                });
+
+                marker.on('click', function() {
+                    new AMap.InfoWindow({
+                        content: '<div style="padding:10px;"><strong>🚪 ' + cp.name + '</strong><br/><small style="color:#666;">深港过境口岸</small></div>',
                         offset: new AMap.Pixel(0, -30)
                     }).open(map, marker.getPosition());
                 });
