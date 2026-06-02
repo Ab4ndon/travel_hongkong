@@ -543,11 +543,92 @@
             font-size: 14px;
             font-weight: 600;
             transition: all 0.3s ease;
+            cursor: pointer;
         }
 
         .attraction-link:hover {
             transform: scale(1.05);
             box-shadow: 0 4px 15px rgba(255, 36, 66, 0.4);
+        }
+        
+        .xhs-notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            max-width: 400px;
+            z-index: 10000;
+            animation: slideIn 0.3s ease-out;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .xhs-notification-success {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .xhs-notification-info {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+        
+        .xhs-notification-error {
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            color: white;
+        }
+        
+        .xhs-notification-content {
+            display: flex;
+            align-items: center;
+            padding: 16px 20px;
+            gap: 12px;
+        }
+        
+        .xhs-notification-message {
+            flex: 1;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        
+        .xhs-notification-close {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .xhs-notification-close:hover {
+            background: rgba(255,255,255,0.3);
+        }
+        
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(100%);
+                opacity: 0;
+            }
         }
         
         @media (max-width: 768px) {
@@ -859,6 +940,9 @@
         <div class="attractions-hero">
             <h1>🇭🇰 香港必去景点 TOP 10</h1>
             <p>小红书 + 美团旅行双平台推荐 | 按热度排序 | 含真实图片与攻略链接</p>
+            <div style="background:rgba(255,255,255,0.15);border-radius:10px;padding:12px 20px;margin-top:15px;font-size:14px;backdrop-filter:blur(5px);display:inline-block;">
+                💡 <strong>使用说明：</strong>点击下方"📕 查看小红书攻略"按钮，<strong>移动端将自动尝试唤起小红书APP</strong>直接打开对应笔记（含高清图片和完整攻略），PC端将打开网页版
+            </div>
         </div>
 
         <div class="attractions-grid">
@@ -884,7 +968,7 @@
                     <div class="attraction-price">
                         💰 免费 | 建议傍晚前往观赏日落和夜景
                     </div>
-                    <a href="https://www.xiaohongshu.com/search_result/69719a6400000000220394db" target="_blank" class="attraction-link">
+                    <a href="javascript:void(0)" onclick="return openXiaohongshuNote('69719a6400000000220394db')" class="attraction-link">
                         📕 查看小红书攻略（3046赞）
                     </a>
                 </div>
@@ -912,7 +996,7 @@
                     <div class="attraction-price">
                         💰 缆车往返88港币 / 单程62港币 | 巴士更实惠
                     </div>
-                    <a href="https://www.xiaohongshu.com/search_result/69719a6400000000220394db" target="_blank" class="attraction-link">
+                    <a href="javascript:void(0)" onclick="return openXiaohongshuNote('69719a6400000000220394db')" class="attraction-link">
                         📕 查看小红书攻略
                     </a>
                 </div>
@@ -940,7 +1024,7 @@
                     <div class="attraction-price">
                         💰 2-3港币 | 小红书8172赞强烈推荐
                     </div>
-                    <a href="https://www.xiaohongshu.com/search_result/69e37c14000000002101318d" target="_blank" class="attraction-link">
+                    <a href="javascript:void(0)" onclick="return openXiaohongshuNote('69e37c14000000002101318d')" class="attraction-link">
                         📕 查看小红书攻略（8172赞爆款）
                     </a>
                 </div>
@@ -968,7 +1052,7 @@
                     <div class="attraction-price">
                         💰 免费 | 小红书爆款机位
                     </div>
-                    <a href="https://www.xiaohongshu.com/search_result/69c3a1cc000000001d01b54f" target="_blank" class="attraction-link">
+                    <a href="javascript:void(0)" onclick="return openXiaohongshuNote('69c3a1cc000000001d01b54f')" class="attraction-link">
                         📕 查看小红书攻略（2410赞）
                     </a>
                 </div>
@@ -996,7 +1080,7 @@
                     <div class="attraction-price">
                         💰 免费 | 小红书独家发现
                     </div>
-                    <a href="https://www.xiaohongshu.com/search_result/69c3a1cc000000001d01b54f" target="_blank" class="attraction-link">
+                    <a href="javascript:void(0)" onclick="return openXiaohongshuNote('69c3a1cc000000001d01b54f')" class="attraction-link">
                         📕 查看小红书攻略
                     </a>
                 </div>
@@ -1024,7 +1108,7 @@
                     <div class="attraction-price">
                         💰 H1: 41.8港币 | H2K: 约80分钟 | 小红书8172赞爆款
                     </div>
-                    <a href="https://www.xiaohongshu.com/search_result/69e37c14000000002101318d" target="_blank" class="attraction-link">
+                    <a href="javascript:void(0)" onclick="return openXiaohongshuNote('69e37c14000000002101318d')" class="attraction-link">
                         📕 查看小红书详细路线（8172赞）
                     </a>
                 </div>
@@ -1052,7 +1136,7 @@
                     <div class="attraction-price">
                         💰 20港币/3圈 | 周末建议提前购票
                     </div>
-                    <a href="https://www.xiaohongshu.com/search_result/69c3a1cc000000001d01b54f" target="_blank" class="attraction-link">
+                    <a href="javascript:void(0)" onclick="return openXiaohongshuNote('69c3a1cc000000001d01b54f')" class="attraction-link">
                         📕 查看小红书攻略
                     </a>
                 </div>
@@ -1080,7 +1164,7 @@
                     <div class="attraction-price">
                         💰 免费 | 市井文化体验
                     </div>
-                    <a href="https://www.xiaohongshu.com/search_result/69c3a1cc000000001d01b54f" target="_blank" class="attraction-link">
+                    <a href="javascript:void(0)" onclick="return openXiaohongshuNote('69c3a1cc000000001d01b54f')" class="attraction-link">
                         📕 查看小红书详细攻略（2410赞）
                     </a>
                 </div>
@@ -1108,7 +1192,7 @@
                     <div class="attraction-price">
                         💰 免费 | 文艺青年必去
                     </div>
-                    <a href="https://www.xiaohongshu.com/search_result/69719a6400000000220394db" target="_blank" class="attraction-link">
+                    <a href="javascript:void(0)" onclick="return openXiaohongshuNote('69719a6400000000220394db')" class="attraction-link">
                         📕 查看小红书Citywalk攻略（3046赞）
                     </a>
                 </div>
@@ -1136,7 +1220,7 @@
                     <div class="attraction-price">
                         💰 成人票约639港币 | 建议提前网上购票
                     </div>
-                    <a href="https://www.xiaohongshu.com/explore" target="_blank" class="attraction-link">
+                    <a href="javascript:void(0)" onclick="return openXiaohongshuNote('')" class="attraction-link">
                         📕 查看更多小红书攻略
                     </a>
                 </div>
@@ -1373,6 +1457,67 @@
             if (!map || !hkDestinations[index]) return;
             map.setZoomAndCenter(12, hkDestinations[index].position, false, 500);
         };
+        
+        // 小红书Deep Link唤起功能
+        function openXiaohongshuNote(noteId) {
+            const noteUrl = `https://www.xiaohongshu.com/explore/${noteId}`;
+            const deepLink = `xiaohongshu://explore/${noteId}`;
+            
+            const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+            
+            if (isMobile) {
+                // 移动端：尝试Deep Link唤起APP
+                const startTime = Date.now();
+                
+                // 创建隐藏iframe尝试唤起
+                const iframe = document.createElement('iframe');
+                iframe.style.display = 'none';
+                iframe.src = deepLink;
+                document.body.appendChild(iframe);
+                
+                // 延迟后移除iframe并尝试打开网页版
+                setTimeout(() => {
+                    document.body.removeChild(iframe);
+                    
+                    // 如果APP未唤起，打开网页版
+                    if (Date.now() - startTime < 2500) {
+                        window.open(noteUrl, '_blank');
+                        showNotification('📱 正在打开小红书...', 'info');
+                    }
+                }, 2000);
+                
+                showNotification('🚀 正在尝试唤起小红书APP...', 'info');
+            } else {
+                // PC端：直接打开网页版
+                window.open(noteUrl, '_blank');
+                showNotification('📱 已在新标签页打开小红书', 'success');
+            }
+            
+            return false;
+        }
+        
+        function showNotification(message, type) {
+            const existing = document.querySelector('.xhs-notification');
+            if (existing) existing.remove();
+            
+            const notification = document.createElement('div');
+            notification.className = `xhs-notification xhs-notification-${type}`;
+            notification.innerHTML = `
+                <div class="xhs-notification-content">
+                    <div class="xhs-notification-message">${message.replace(/\n/g, '<br>')}</div>
+                    <button onclick="this.parentElement.parentElement.remove()" class="xhs-notification-close">✕</button>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.style.animation = 'slideOut 0.3s ease-in';
+                    setTimeout(() => notification.remove(), 300);
+                }
+            }, 5000);
+        }
 
         document.addEventListener('DOMContentLoaded', initMap);
     </script>
