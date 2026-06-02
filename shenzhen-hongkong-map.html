@@ -1242,14 +1242,12 @@
             });
 
             checkpoints.forEach((cp) => {
+                let markerContent = '<div style="background:#e74c3c;color:white;padding:4px 10px;border-radius:15px;font-size:12px;font-weight:bold;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,0.3);">🚪 ' + cp.name + '</div>';
                 let marker = new AMap.Marker({
                     position: cp.position,
                     title: cp.name,
-                    icon: new AMap.Icon({
-                        size: new AMap.Size(25, 34),
-                        image: 'https://webapi.amap.com/theme/v1.3/markers/n/mark_p.png',
-                        imageSize: new AMap.Size(25, 34)
-                    })
+                    content: markerContent,
+                    offset: new AMap.Pixel(-30, -15)
                 });
 
                 marker.on('click', function() {
