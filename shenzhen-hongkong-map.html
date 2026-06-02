@@ -709,6 +709,67 @@
                             <span class="feature-tag">💼 商务中心</span>
                         </div>
                     </div>
+
+                    <!-- 华住会旗下酒店 -->
+                    <div class="hotel-card" onclick="focusHotel(8)" style="border-left-color: #ff6b35;">
+                        <div class="hotel-name">🌟 全季酒店（华强北华强路地铁站店）</div>
+                        <div class="hotel-info">
+                            <span class="hotel-rating">⭐ 4.7分（美团真实评分）</span>
+                            <span class="hotel-price">￥470起/晚</span>
+                        </div>
+                        <div style="color:#666;font-size:13px;margin:8px 0;">🏨 华住会·高档型 | 距福田口岸3.1公里 | 2022年开业</div>
+                        <div class="hotel-features">
+                            <span class="feature-tag" style="background:#fff0e6;color:#ff6b35;">🤖 机器人服务</span>
+                            <span class="feature-tag" style="background:#fff0e6;color:#ff6b35;">🏋️ 健身房</span>
+                            <span class="feature-tag" style="background:#fff0e6;color:#ff6b35;">🚇 近地铁</span>
+                            <span class="feature-tag" style="background:#fff0e6;color:#ff6b35;">📱 智能化服务</span>
+                        </div>
+                    </div>
+
+                    <div class="hotel-card" onclick="focusHotel(9)" style="border-left-color: #ff6b35;">
+                        <div class="hotel-name">🌟 全季酒店（会展中心岗厦地铁站店）</div>
+                        <div class="hotel-info">
+                            <span class="hotel-rating">⭐ 4.4分（美团真实评分）</span>
+                            <span class="hotel-price">￥611起/晚</span>
+                        </div>
+                        <div style="color:#666;font-size:13px;margin:8px 0;">🏨 华住会·高档型 | 距福田口岸3.5公里 | 岗厦北地铁旁</div>
+                        <div class="hotel-features">
+                            <span class="feature-tag" style="background:#fff0e6;color:#ff6b35;">🚽 智能马桶</span>
+                            <span class="feature-tag" style="background:#fff0e6;color:#ff6b35;">📺 可投屏电视</span>
+                            <span class="feature-tag" style="background:#fff0e6;color:#ff6b35;">🤖 机器人送餐</span>
+                            <span class="feature-tag" style="background:#fff0e6;color:#ff6b35;">🏋️ 健身房</span>
+                        </div>
+                    </div>
+
+                    <div class="hotel-card" onclick="focusHotel(10)" style="border-left-color: #00a699;">
+                        <div class="hotel-name">✅ 汉庭（会展中心福星地铁站店）</div>
+                        <div class="hotel-info">
+                            <span class="hotel-rating">⭐ 4.6分（美团真实评分）</span>
+                            <span class="hotel-price">￥382起/晚</span>
+                        </div>
+                        <div style="color:#666;font-size:13px;margin:8px 0;">🏨 华住会·舒适型 | 距福田口岸2.4公里 | 2026年新装修</div>
+                        <div class="hotel-features">
+                            <span class="feature-tag" style="background:#e6f9f5;color:#00a699;">🆕 新装修</span>
+                            <span class="feature-tag" style="background:#e6f9f5;color:#00a699;">🤖 机器人服务</span>
+                            <span class="feature-tag" style="background:#e6f9f5;color:#00a699;">🚇 近地铁</span>
+                            <span class="feature-tag" style="background:#e6f9f5;color:#00a699;">💰 性价比高</span>
+                        </div>
+                    </div>
+
+                    <div class="hotel-card" onclick="focusHotel(11)" style="border-left-color: #00a699;">
+                        <div class="hotel-name">✅ 汉庭（深圳皇岗店）</div>
+                        <div class="hotel-info">
+                            <span class="hotel-rating">⭐ 4.6分（美团真实评分）</span>
+                            <span class="hotel-price">￥270起/晚</span>
+                        </div>
+                        <div style="color:#666;font-size:13px;margin:8px 0;">🏨 华住会·经济型 | 距福田口岸仅1.5公里 | 福民地铁站旁</div>
+                        <div class="hotel-features">
+                            <span class="feature-tag" style="background:#e6f9f5;color:#00a699;">📍 最近口岸</span>
+                            <span class="feature-tag" style="background:#e6f9f5;color:#00a699;">🎬 有影音房</span>
+                            <span class="feature-tag" style="background:#e6f9f5;color:#00a699;">🌍 外宾适用</span>
+                            <span class="feature-tag" style="background:#e6f9f5;color:#00a699;">💎 超值之选</span>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="route-info">
@@ -1163,6 +1224,39 @@
                 rating: "9.7/10",
                 type: "hotel",
                 color: "#e74c3c"
+            },
+            // 华住会旗下酒店
+            {
+                name: "全季酒店（华强北华强路地铁站店）",
+                position: [114.085, 22.543],
+                price: "￥470起",
+                rating: "4.7分",
+                type: "hotel",
+                color: "#ff6b35"
+            },
+            {
+                name: "全季酒店（会展中心岗厦地铁站店）",
+                position: [114.070, 22.535],
+                price: "￥611起",
+                rating: "4.4分",
+                type: "hotel",
+                color: "#ff6b35"
+            },
+            {
+                name: "汉庭（会展中心福星地铁站店）",
+                position: [114.105, 22.538],
+                price: "￥382起",
+                rating: "4.6分",
+                type: "hotel",
+                color: "#00a699"
+            },
+            {
+                name: "汉庭（深圳皇岗店）",
+                position: [114.068, 22.520],
+                price: "￥270起",
+                rating: "4.6分",
+                type: "hotel",
+                color: "#00a699"
             }
         ];
 
