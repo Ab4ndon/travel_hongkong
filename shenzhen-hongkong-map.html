@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>深圳福田口岸附近酒店及香港路线地图</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .header {
+            background: rgba(255,255,255,0.95);
+            color: #333;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            backdrop-filter: blur(10px);
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .header p {
+            font-size: 15px;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 25px auto;
+            padding: 0 25px;
+        }
+        
+        #map-container {
+            width: 100%;
+            height: 700px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .legend {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: white;
+            padding: 18px;
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+            z-index: 1000;
+            font-size: 13px;
+            max-height: 600px;
+            overflow-y: auto;
+        }
+        
+        .legend h3 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #333;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 8px;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            padding: 8px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+        
+        .legend-item:hover {
+            background: #f8f9fa;
+            transform: translateX(3px);
+        }
+        
+        .legend-color {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            margin-right: 10px;
+            flex-shrink: 0;
+            border: 2px solid white;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+        
+        .legend-text {
+            flex: 1;
+            line-height: 1.4;
+        }
+        
+        .legend-name {
+            font-weight: 500;
+            color: #333;
+            font-size: 13px;
+        }
+        
+        .legend-price {
+            color: #e74c3c;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .info-panel {
+            background: white;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            margin-top: 25px;
+        }
+        
+        .section-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 18px;
+            padding-left: 15px;
+            border-left: 5px solid #667eea;
+        }
+        
+        .hotel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 18px;
+            margin-bottom: 30px;
+        }
+        
+        .hotel-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-left: 5px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hotel-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .hotel-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+        
+        .hotel-card.best-choice::after {
+            content: '⭐ 首推';
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        
+        .hotel-name {
+            font-size: 17px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 8px;
+        }
+        
+        .hotel-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 8px 0;
+        }
+        
+        .hotel-rating {
+            display: inline-flex;
+            align-items: center;
+            background: #fef3c7;
+            color: #d97706;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+        
+        .hotel-price {
+            font-size: 19px;
+            font-weight: 700;
+            color: #e74c3c;
+        }
+        
+        .hotel-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 10px;
+        }
+        
+        .feature-tag {
+            background: #e0e7ff;
+            color: #3730a3;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+        
+        .route-info {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            border-radius: 12px;
+            padding: 22px;
+            margin-top: 20px;
+            border-left: 5px solid #2563eb;
+        }
+        
+        .route-info h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 12px;
+        }
+        
+        .route-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .step {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        
+        .step-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            background: #2563eb;
+            color: white;
+            border-radius: 50%;
+            font-weight: 600;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+        
+        .step-content {
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .step-text {
+            flex: 1;
+            line-height: 1.6;
+            color: #334155;
+        }
+        
+        .step-time {
+            color: #2563eb;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 { font-size: 22px; }
+            #map-container { height: 450px; }
+            .legend { 
+                position: relative; 
+                top: auto; 
+                right: auto; 
+                margin-top: 15px; 
+                max-height: none;
+            }
+            .hotel-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🗺️ 深圳福田口岸酒店 & 香港路线导航</h1>
+        <p>高性价比酒店推荐 | 福田口岸过关 | 14分钟高铁直达香港 | 实时路线规划</p>
+    </div>
+
+    <div class="container">
+        <div id="map-container"></div>
+
+        <div class="info-panel">
+            <h2 class="section-title">🏨 推荐酒店详情</h2>
+            
+            <div class="hotel-grid">
+                <div class="hotel-card best-choice" onclick="focusHotel(0)">
+                    <div class="hotel-name">🥇 秋果酒店（福民地铁站店）</div>
+                    <div class="hotel-info">
+                        <span class="hotel-rating">⭐ 4.8分</span>
+                        <span class="hotel-price">￥240起/晚</span>
+                    </div>
+                    <div style="color:#666;font-size:13px;margin:8px 0;">距福民地铁站<100米 | 距福田口岸1公里</div>
+                    <div class="hotel-features">
+                        <span class="feature-tag">🤖 机器人服务</span>
+                        <span class="feature-tag">🆓 免费饮品</span>
+                        <span class="feature-tag">🧺 免费洗衣</span>
+                        <span class="feature-tag">🌙 夜间补给</span>
+                    </div>
+                </div>
+
+                <div class="hotel-card" onclick="focusHotel(1)">
+                    <div class="hotel-name">🥈 皇朝商务酒店（福田口岸店）</div>
+                    <div class="hotel-info">
+                        <span class="hotel-rating">⭐ 4.6分</span>
+                        <span class="hotel-price">￥206起/晚</span>
+                    </div>
+                    <div style="color:#666;font-size:13px;margin:8px 0;">距福田口岸仅100米 | 步行即达</div>
+                    <div class="hotel-features">
+                        <span class="feature-tag">📍 最近口岸</span>
+                        <span class="feature-tag">💰 最便宜</span>
+                        <span class="feature-tag">🅿️ 有停车场</span>
+                        <span class="feature-tag">📶 千兆网络</span>
+                    </div>
+                </div>
+
+                <div class="hotel-card" onclick="focusHotel(2)">
+                    <div class="hotel-name">🥉 锦江之星（福民地铁站店）</div>
+                    <div class="hotel-info">
+                        <span class="hotel-rating">⭐ 4.5分</span>
+                        <span class="hotel-price">￥201起/晚</span>
+                    </div>
+                    <div style="color:#666;font-size:13px;margin:8px 0;">近福民地铁站 | 近购物中心</div>
+                    <div class="hotel-features">
+                        <span class="feature-tag">🏪 连锁品牌</span>
+                        <span class="feature-tag">🍺 有酒吧</span>
+                        <span class="feature-tag">🤖 机器人服务</span>
+                        <span class="feature-tag">💼 商务设施</span>
+                    </div>
+                </div>
+
+                <div class="hotel-card" onclick="focusHotel(3)">
+                    <div class="hotel-name">✨ 麗枫酒店（会展中心口岸店）</div>
+                    <div class="hotel-info">
+                        <span class="hotel-rating">⭐ 4.5分</span>
+                        <span class="hotel-price">￥257起/晚</span>
+                    </div>
+                    <div style="color:#666;font-size:13px;margin:8px 0;">高档型连锁 | 近地铁口商场</div>
+                    <div class="hotel-features">
+                        <span class="feature-tag">🏢 高档型</span>
+                        <span class="feature-tag">🛍️ 近商场</span>
+                        <span class="feature-tag">🧖‍♀️ 沐足房</span>
+                        <span class="feature-tag">⏰ 24小时前台</span>
+                    </div>
+                </div>
+
+                <div class="hotel-card" onclick="focusHotel(4)">
+                    <div class="hotel-name">💎 雅庭精品酒店（口岸会展中心店）</div>
+                    <div class="hotel-info">
+                        <span class="hotel-rating">⭐ 4.6分</span>
+                        <span class="hotel-price">￥300起/晚</span>
+                    </div>
+                    <div style="color:#666;font-size:13px;margin:8px 0;">房间30㎡+ | 免费停车洗衣</div>
+                    <div class="hotel-features">
+                        <span class="feature-tag">🚗 免费停车</span>
+                        <span class="feature-tag">🧺 免费洗衣</span>
+                        <span class="feature-tag">📐 房间大</span>
+                        <span class="feature-tag">🍽️ 自助餐厅</span>
+                    </div>
+                </div>
+
+                <div class="hotel-card" onclick="focusHotel(5)">
+                    <div class="hotel-name">🔑 钥匙之家（罗湖口岸品城店）</div>
+                    <div class="hotel-info">
+                        <span class="hotel-rating">⭐ 4.6分</span>
+                        <span class="hotel-price">￥221起/晚</span>
+                    </div>
+                    <div style="color:#666;font-size:13px;margin:8px 0;">邻近罗湖口岸 | 性价比高</div>
+                    <div class="hotel-features">
+                        <span class="feature-tag">🎬 视听房</span>
+                        <span class="feature-tag">📍 近地铁</span>
+                        <span class="feature-tag">💰 性价比高</span>
+                        <span class="feature-tag">🏪 近商场</span>
+                    </div>
+                </div>
+
+                <div class="hotel-card" onclick="focusHotel(6)">
+                    <div class="hotel-name">🌟 全季酒店（皇岗店）</div>
+                    <div class="hotel-info">
+                        <span class="hotel-rating">⭐ 9.3/10</span>
+                        <span class="hotel-price">￥350起/晚</span>
+                    </div>
+                    <div style="color:#666;font-size:13px;margin:8px 0;">华住旗下 | 健身房 | 水围村旁</div>
+                    <div class="hotel-features">
+                        <span class="feature-tag">🏋️ 健身房</span>
+                        <span class="feature-tag">📱 电子证件入住</span>
+                        <span class="feature-tag">🍜 近美食街</span>
+                        <span class="feature-tag">🏨 品牌保障</span>
+                    </div>
+                </div>
+
+                <div class="hotel-card" onclick="focusHotel(7)">
+                    <div class="hotel-name">🏆 福田皇岗城际酒店</div>
+                    <div class="hotel-info">
+                        <span class="hotel-rating">⭐ 9.7/10 超高分</span>
+                        <span class="hotel-price">￥600起/晚</span>
+                    </div>
+                    <div style="color:#666;font-size:13px;margin:8px 0;">德式风格 | 最高评分 | 房间宽敞</div>
+                    <div class="hotel-features">
+                        <span class="feature-tag">🏆 最高评分</span>
+                        <span class="feature-tag">🇩🇪 德式风格</span>
+                        <span class="feature-tag">🍷 有酒吧</span>
+                        <span class="feature-tag">💼 商务中心</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="route-info">
+                <h3>🚄 前往香港路线指南</h3>
+                <p style="color:#1e40af;line-height:1.8;">
+                    从酒店出发 → 步行/地铁至福<strong>田口岸</strong> → 过关至香港落马洲 → 
+                    搭乘高铁至<strong>香港西九龙站</strong>（14分钟）或港铁东铁线至香港各地
+                </p>
+                
+                <div class="route-steps">
+                    <div class="step">
+                        <div class="step-content">
+                            <span class="step-number">1</span>
+                            <div class="step-text">
+                                <strong>酒店→福田口岸</strong><br>
+                                <span class="step-time">步行/地铁 5-15分钟</span><br>
+                                <small style="color:#64748b;">最近酒店仅100米</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-content">
+                            <span class="step-number">2</span>
+                            <div class="step-text">
+                                <strong>福田口岸过关</strong><br>
+                                <span class="step-time">约15-30分钟</span><br>
+                                <small style="color:#64748b;">需携带回乡证/通行证</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="step">
+                        <div class="step-content">
+                            <span class="step-number">3</span>
+                            <div class="step-text">
+                                <strong>落马洲→香港市区</strong><br>
+                                <span class="step-time">高铁14分钟 / 港铁30分钟</span><br>
+                                <small style="color:#64748b;">西九龙/尖沙咀/中环等</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        window._AMapSecurityConfig = {
+            securityJsCode: '09b352ffdfcffff15593ec7fff9cafc3',
+        }
+    </script>
+    <script src="https://webapi.amap.com/maps?v=2.0&key=1bb17bc2effc2c72169965fb82aa3970"></script>
+    
+    <script>
+        let map;
+        let markers = [];
+        let hotelData = [
+            {
+                name: "秋果酒店（福民地铁站店）",
+                position: [114.057, 22.523],
+                price: "￥240起",
+                rating: "4.8分",
+                type: "hotel",
+                color: "#e74c3c"
+            },
+            {
+                name: "皇朝商务酒店（福田口岸店）",
+                position: [114.065, 22.520],
+                price: "￥206起",
+                rating: "4.6分",
+                type: "hotel",
+                color: "#3498db"
+            },
+            {
+                name: "锦江之星（福民地铁站店）",
+                position: [114.058, 22.524],
+                price: "￥201起",
+                rating: "4.5分",
+                type: "hotel",
+                color: "#2ecc71"
+            },
+            {
+                name: "麗枫酒店（会展中心口岸店）",
+                position: [114.055, 22.526],
+                price: "￥257起",
+                rating: "4.5分",
+                type: "hotel",
+                color: "#f39c12"
+            },
+            {
+                name: "雅庭精品酒店（口岸会展中心店）",
+                position: [114.045, 22.528],
+                price: "￥300起",
+                rating: "4.6分",
+                type: "hotel",
+                color: "#9b59b6"
+            },
+            {
+                name: "钥匙之家（罗湖口岸品城店）",
+                position: [114.120, 22.548],
+                price: "￥221起",
+                rating: "4.6分",
+                type: "hotel",
+                color: "#1abc9c"
+            },
+            {
+                name: "全季酒店（皇岗店）",
+                position: [114.070, 22.518],
+                price: "￥350起",
+                rating: "9.3/10",
+                type: "hotel",
+                color: "#e67e22"
+            },
+            {
+                name: "福田皇岗城际酒店",
+                position: [114.062, 22.522],
+                price: "￥600起",
+                rating: "9.7/10",
+                type: "hotel",
+                color: "#c0392b"
+            }
+        ];
+
+        const portData = {
+            name: "福田口岸",
+            position: [114.066, 22.519],
+            type: "port",
+            color: "#2563eb"
+        };
+
+        const hkDestinations = [
+            {
+                name: "香港西九龙站",
+                position: [114.162, 22.304],
+                type: "hk",
+                color: "#dc2626"
+            },
+            {
+                name: "维多利亚港",
+                position: [114.170, 22.280],
+                type: "hk",
+                color: "#7c3aed"
+            },
+            {
+                name: "尖沙咀",
+                position: [114.175, 22.295],
+                type: "hk",
+                color: "#db2777"
+            },
+            {
+                name: "中环",
+                position: [114.165, 22.275],
+                type: "hk",
+                color: "#059669"
+            }
+        ];
+
+        function initMap() {
+            map = new AMap.Map('map-container', {
+                zoom: 12,
+                center: [114.065, 22.525],
+                mapStyle: 'amap://styles/whitesmoke',
+                viewMode: '2D'
+            });
+
+            AMap.plugin(['AMap.ToolBar', 'AMap.Scale'], function() {
+                map.addControl(new AMap.ToolBar({
+                    position: 'LT'
+                }));
+                map.addControl(new AMap.Scale());
+            });
+
+            addHotels();
+            addPort();
+            addHKDestinations();
+            drawRoutes();
+            createLegend();
+        }
+
+        function addHotels() {
+            hotelData.forEach((hotel, index) => {
+                let marker = new AMap.Marker({
+                    position: hotel.position,
+                    title: hotel.name,
+                    icon: new AMap.Icon({
+                        size: new AMap.Size(28, 36),
+                        imageSize: new AMap.Size(28, 36),
+                        image: 'https://webapi.amap.com/theme/v1.3/markers/n/mark_b' + (index + 1) + '.png'
+                    }),
+                    offset: new AMap.Pixel(-14, -36),
+                    zIndex: 100 + index
+                });
+
+                let infoWindow = new AMap.InfoWindow({
+                    content: `
+                        <div style="padding:12px;min-width:220px;">
+                            <h3 style="margin:0 0 8px 0;color:#333;font-size:15px;font-weight:600;">${hotel.name}</h3>
+                            <p style="margin:5px 0;color:#e74c3c;font-weight:600;font-size:16px;">${hotel.price}/晚</p>
+                            <p style="margin:5px 0;color:#f59e0b;font-size:14px;">⭐ 评分：${hotel.rating}</p>
+                            <p style="margin:8px 0 0 0;color:#666;font-size:12px;border-top:1px solid #eee;padding-top:8px;">
+                                点击查看详情
+                            </p>
+                        </div>
+                    `,
+                    offset: new AMap.Pixel(0, -40)
+                });
+
+                marker.on('click', function() {
+                    infoWindow.open(map, marker.getPosition());
+                });
+
+                marker.setMap(map);
+                markers.push({marker, data: hotel});
+            });
+        }
+
+        function addPort() {
+            let portMarker = new AMap.Marker({
+                position: portData.position,
+                title: portData.name,
+                icon: new AMap.Icon({
+                    size: new AMap.Size(36, 36),
+                    imageSize: new AMap.Size(36, 36),
+                    image: 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzYiIGhlaWdodD0iMzYiIHZpZXdCb3g9IjAgMCAzNiAzNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTgiIGN5PSIxOCIgcj0iMTgiIGZpbGw9IiMyNTYzZWIiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS13aWR0aD0iMiIvPgo8cGF0aCBkPSJNMTggOXYxMm0tNiAwaDEyIiBzdHJva2U9IndoaXRlIiBzdHJva2Utd2lkdGg9IjIuNSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjwvc3ZnPgo='
+                }),
+                offset: new AMap.Pixel(-18, -18),
+                zIndex: 200
+            });
+
+            let infoWindow = new AMap.InfoWindow({
+                content: `
+                    <div style="padding:12px;min-width:240px;">
+                        <h3 style="margin:0 0 8px 0;color:#2563eb;font-size:16px;font-weight:600;">🚩 ${portData.name}</h3>
+                        <p style="margin:5px 0;color:#333;line-height:1.6;">
+                            ✅ 24小时通关<br>
+                            ✅ 地铁4/10号线直达<br>
+                            ✅ 过关后换乘高铁<br>
+                            ⏱️ 建议预留30分钟
+                        </p>
+                    </div>
+                `,
+                offset: new AMap.Pixel(0, -40)
+            });
+
+            portMarker.on('click', function() {
+                infoWindow.open(map, portMarker.getPosition());
+            });
+
+            portMarker.setMap(map);
+        }
+
+        function addHKDestinations() {
+            hkDestinations.forEach((dest, index) => {
+                let marker = new AMap.Marker({
+                    position: dest.position,
+                    title: dest.name,
+                    icon: new AMap.Icon({
+                        size: new AMap.Size(32, 32),
+                        imageSize: new AMap.Size(32, 32),
+                        image: 'data:image/svg+xml;base64,' + btoa(`
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="16" cy="16" r="15" fill="${dest.color}" stroke="white" stroke-width="2"/>
+                                <text x="16" y="20" text-anchor="middle" fill="white" font-size="14" font-weight="bold">HK</text>
+                            </svg>
+                        `)
+                    }),
+                    offset: new AMap.Pixel(-16, -16),
+                    zIndex: 150
+                });
+
+                let infoWindow = new AMap.InfoWindow({
+                    content: `
+                        <div style="padding:12px;min-width:200px;">
+                            <h3 style="margin:0 0 8px 0;color:${dest.color};font-size:15px;font-weight:600;">🇭🇰 ${dest.name}</h3>
+                            <p style="margin:5px 0;color:#666;font-size:12px;line-height:1.6;">
+                                从福田口岸出发<br>
+                                🚄 高铁约14-20分钟<br>
+                                🚇 港铁约30-40分钟
+                            </p>
+                        </div>
+                    `,
+                    offset: new AMap.Pixel(0, -35)
+                });
+
+                marker.on('click', function() {
+                    infoWindow.open(map, marker.getPosition());
+                });
+
+                marker.setMap(map);
+            });
+        }
+
+        function drawRoutes() {
+            AMap.plugin('AMap.Driving', function() {
+                var driving = new AMap.Driving({
+                    policy: AMap.DrivingPolicy.LEAST_TIME,
+                    ferry: 1,
+                    hideMarkers: true,
+                    isOutline: true,
+                    outlineColor: '#ffeeee',
+                    showTraffic: false
+                });
+
+                hotelData.forEach(hotel => {
+                    driving.search(
+                        hotel.position,
+                        portData.position,
+                        function(status, result) {
+                            if (status === 'complete') {
+                                var path = result.routes[0].steps.flatMap(step => step.path);
+                                
+                                var polyline = new AMap.Polyline({
+                                    path: path,
+                                    strokeColor: '#94a3b8',
+                                    strokeWeight: 2,
+                                    strokeOpacity: 0.4,
+                                    strokeStyle: 'solid',
+                                    lineJoin: 'round',
+                                    zIndex: 50
+                                });
+                                polyline.setMap(map);
+                            }
+                        }
+                    );
+                });
+
+                driving.search(
+                    portData.position,
+                    hkDestinations[0].position,
+                    function(status, result) {
+                        if (status === 'complete') {
+                            var path = result.routes[0].steps.flatMap(step => step.path);
+                            
+                            var mainRoute = new AMap.Polyline({
+                                path: path,
+                                strokeColor: '#ef4444',
+                                strokeWeight: 4,
+                                strokeOpacity: 0.8,
+                                strokeStyle: 'solid',
+                                lineJoin: 'round',
+                                zIndex: 80,
+                                strokeStyle: 'dashed'
+                            });
+                            mainRoute.setMap(map);
+
+                            var startMarker = new AMap.CircleMarker({
+                                center: portData.position,
+                                radius: 8,
+                                fillColor: '#2563eb',
+                                fillOpacity: 0.9,
+                                strokeColor: 'white',
+                                strokeWidth: 2,
+                                zIndex: 90
+                            });
+                            startMarker.setMap(map);
+
+                            var endMarker = new AMap.CircleMarker({
+                                center: hkDestinations[0].position,
+                                radius: 8,
+                                fillColor: '#dc2626',
+                                fillOpacity: 0.9,
+                                strokeColor: 'white',
+                                strokeWidth: 2,
+                                zIndex: 90
+                            });
+                            endMarker.setMap(map);
+                        }
+                    }
+                );
+            });
+        }
+
+        function createLegend() {
+            let legendContent = document.querySelector('.legend');
+            if (!legendContent) return;
+
+            legendContent.innerHTML = `
+                <h3>📍 图例说明</h3>
+                
+                <div style="margin-bottom:15px;padding-bottom:10px;border-bottom:1px solid #eee;">
+                    <div class="legend-item" onclick="focusOnPort()">
+                        <div class="legend-color" style="background:#2563eb;"></div>
+                        <div class="legend-text">
+                            <div class="legend-name">🚩 福田口岸</div>
+                            <div style="font-size:11px;color:#888;">过关枢纽</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-bottom:15px;padding-bottom:10px;border-bottom:1px solid #eee;">
+                    <div style="font-size:12px;font-weight:600;color:#666;margin-bottom:8px;">🇭🇰 香港目的地</div>
+                    ${hkDestinations.map(dest => `
+                        <div class="legend-item" onclick="focusHK(${hkDestinations.indexOf(dest)})">
+                            <div class="legend-color" style="background:${dest.color};"></div>
+                            <div class="legend-text">
+                                <div class="legend-name">${dest.name}</div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <div>
+                    <div style="font-size:12px;font-weight:600;color:#666;margin-bottom:8px;">🏨 推荐酒店</div>
+                    ${hotelData.map((hotel, idx) => `
+                        <div class="legend-item" onclick="focusHotel(${idx})">
+                            <div class="legend-color" style="background:${hotel.color};"></div>
+                            <div class="legend-text">
+                                <div class="legend-name">${hotel.name.substring(0, 12)}${hotel.name.length > 12 ? '...' : ''}</div>
+                                <div class="legend-price">${hotel.price} | ⭐${hotel.rating}</div>
+                            </div>
+                        </div>
+                    `).join('')}
+                </div>
+
+                <div style="margin-top:15px;padding-top:12px;border-top:1px solid #eee;">
+                    <div style="font-size:11px;color:#999;line-height:1.6;">
+                        <strong>路线说明：</strong><br>
+                        ━ 灰线：酒店→口岸<br>
+                        ═ 红虚线：口岸→香港
+                    </div>
+                </div>
+            `;
+        }
+
+        window.focusHotel = function(index) {
+            if (markers[index]) {
+                map.setZoomAndCenter(15, markers[index].data.position, false, 500);
+                markers[index].marker.emit('click');
+            }
+        };
+
+        window.focusOnPort = function() {
+            map.setZoomAndCenter(15, portData.position, false, 500);
+        };
+
+        window.focusHK = function(index) {
+            map.setZoomAndCenter(12, hkDestinations[index].position, false, 500);
+        };
+
+        document.addEventListener('DOMContentLoaded', initMap);
+    </script>
+</body>
+</html>
