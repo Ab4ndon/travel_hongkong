@@ -234,6 +234,28 @@
             font-weight: 500;
         }
         
+        .hotel-detail-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            margin-top: 12px;
+            padding: 10px 16px;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 8px rgba(255, 107, 53, 0.3);
+        }
+        
+        .hotel-detail-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 16px rgba(255, 107, 53, 0.4);
+            background: linear-gradient(135deg, #f7931e 0%, #ff6b35 100%);
+        }
+        
         .route-info {
             background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
             border-radius: 12px;
@@ -590,7 +612,7 @@
                 <h2 class="section-title">🏨 推荐酒店详情</h2>
                 
                 <div class="hotel-grid">
-                    <div class="hotel-card best-choice" onclick="focusHotel(0)">
+                    <div class="hotel-card best-choice">
                         <div class="hotel-name">🥇 秋果酒店（福民地铁站店）</div>
                         <div class="hotel-info">
                             <span class="hotel-rating">⭐ 4.8分</span>
@@ -603,9 +625,10 @@
                             <span class="feature-tag">🧺 免费洗衣</span>
                             <span class="feature-tag">🌙 夜间补给</span>
                         </div>
+                        <a href="https://search.meituan.com/hotel/search?searchText=秋果酒店福民地铁站店" target="_blank" class="hotel-detail-btn">📱 查看美团详情</a>
                     </div>
 
-                    <div class="hotel-card" onclick="focusHotel(1)">
+                    <div class="hotel-card">
                         <div class="hotel-name">🥈 皇朝商务酒店（福田口岸店）</div>
                         <div class="hotel-info">
                             <span class="hotel-rating">⭐ 4.6分</span>
@@ -618,9 +641,10 @@
                             <span class="feature-tag">🅿️ 有停车场</span>
                             <span class="feature-tag">📶 千兆网络</span>
                         </div>
+                        <a href="https://search.meituan.com/hotel/search?searchText=皇朝商务酒店福田口岸店" target="_blank" class="hotel-detail-btn">📱 查看美团详情</a>
                     </div>
 
-                    <div class="hotel-card" onclick="focusHotel(2)">
+                    <div class="hotel-card">
                         <div class="hotel-name">🥉 锦江之星（福民地铁站店）</div>
                         <div class="hotel-info">
                             <span class="hotel-rating">⭐ 4.5分</span>
@@ -633,9 +657,10 @@
                             <span class="feature-tag">🤖 机器人服务</span>
                             <span class="feature-tag">💼 商务设施</span>
                         </div>
+                        <a href="https://search.meituan.com/hotel/search?searchText=锦江之星福民地铁站店" target="_blank" class="hotel-detail-btn">📱 查看美团详情</a>
                     </div>
 
-                    <div class="hotel-card" onclick="focusHotel(3)">
+                    <div class="hotel-card">
                         <div class="hotel-name">✨ 麗枫酒店（会展中心口岸店）</div>
                         <div class="hotel-info">
                             <span class="hotel-rating">⭐ 4.5分</span>
@@ -648,9 +673,10 @@
                             <span class="feature-tag">🧖‍♀️ 沐足房</span>
                             <span class="feature-tag">⏰ 24小时前台</span>
                         </div>
+                        <a href="https://search.meituan.com/hotel/search?searchText=麗枫酒店会展中心口岸店" target="_blank" class="hotel-detail-btn">📱 查看美团详情</a>
                     </div>
 
-                    <div class="hotel-card" onclick="focusHotel(4)">
+                    <div class="hotel-card">
                         <div class="hotel-name">💎 雅庭精品酒店（口岸会展中心店）</div>
                         <div class="hotel-info">
                             <span class="hotel-rating">⭐ 4.6分</span>
@@ -663,9 +689,10 @@
                             <span class="feature-tag">📐 房间大</span>
                             <span class="feature-tag">🍽️ 自助餐厅</span>
                         </div>
+                        <a href="https://search.meituan.com/hotel/search?searchText=雅庭精品酒店口岸会展中心店" target="_blank" class="hotel-detail-btn">📱 查看美团详情</a>
                     </div>
 
-                    <div class="hotel-card" onclick="focusHotel(5)">
+                    <div class="hotel-card">
                         <div class="hotel-name">🔑 钥匙之家（罗湖口岸品城店）</div>
                         <div class="hotel-info">
                             <span class="hotel-rating">⭐ 4.6分</span>
@@ -678,9 +705,10 @@
                             <span class="feature-tag">💰 性价比高</span>
                             <span class="feature-tag">🏪 近商场</span>
                         </div>
+                        <a href="https://search.meituan.com/hotel/search?searchText=钥匙之家罗湖口岸品城店" target="_blank" class="hotel-detail-btn">📱 查看美团详情</a>
                     </div>
 
-                    <div class="hotel-card" onclick="focusHotel(6)">
+                    <div class="hotel-card">
                         <div class="hotel-name">🌟 全季酒店（皇岗店）</div>
                         <div class="hotel-info">
                             <span class="hotel-rating">⭐ 9.3/10</span>
@@ -693,9 +721,10 @@
                             <span class="feature-tag">🍜 近美食街</span>
                             <span class="feature-tag">🏨 品牌保障</span>
                         </div>
+                        <a href="https://search.meituan.com/hotel/search?searchText=全季酒店皇岗店" target="_blank" class="hotel-detail-btn">📱 查看美团详情</a>
                     </div>
 
-                    <div class="hotel-card" onclick="focusHotel(7)">
+                    <div class="hotel-card">
                         <div class="hotel-name">🏆 福田皇岗城际酒店</div>
                         <div class="hotel-info">
                             <span class="hotel-rating">⭐ 9.7/10 超高分</span>
@@ -708,10 +737,11 @@
                             <span class="feature-tag">🍷 有酒吧</span>
                             <span class="feature-tag">💼 商务中心</span>
                         </div>
+                        <a href="https://search.meituan.com/hotel/search?searchText=福田皇岗城际酒店" target="_blank" class="hotel-detail-btn">📱 查看美团详情</a>
                     </div>
 
                     <!-- 华住会旗下酒店 -->
-                    <div class="hotel-card" onclick="focusHotel(8)" style="border-left-color: #ff6b35;">
+                    <div class="hotel-card" style="border-left-color: #ff6b35;">
                         <div class="hotel-name">🌟 全季酒店（华强北华强路地铁站店）</div>
                         <div class="hotel-info">
                             <span class="hotel-rating">⭐ 4.7分（美团真实评分）</span>
@@ -724,9 +754,10 @@
                             <span class="feature-tag" style="background:#fff0e6;color:#ff6b35;">🚇 近地铁</span>
                             <span class="feature-tag" style="background:#fff0e6;color:#ff6b35;">📱 智能化服务</span>
                         </div>
+                        <a href="https://search.meituan.com/hotel/search?searchText=全季酒店华强北华强路地铁站店" target="_blank" class="hotel-detail-btn">📱 查看美团详情</a>
                     </div>
 
-                    <div class="hotel-card" onclick="focusHotel(9)" style="border-left-color: #ff6b35;">
+                    <div class="hotel-card" style="border-left-color: #ff6b35;">
                         <div class="hotel-name">🌟 全季酒店（会展中心岗厦地铁站店）</div>
                         <div class="hotel-info">
                             <span class="hotel-rating">⭐ 4.4分（美团真实评分）</span>
@@ -739,9 +770,10 @@
                             <span class="feature-tag" style="background:#fff0e6;color:#ff6b35;">🤖 机器人送餐</span>
                             <span class="feature-tag" style="background:#fff0e6;color:#ff6b35;">🏋️ 健身房</span>
                         </div>
+                        <a href="https://search.meituan.com/hotel/search?searchText=全季酒店会展中心岗厦地铁站店" target="_blank" class="hotel-detail-btn">📱 查看美团详情</a>
                     </div>
 
-                    <div class="hotel-card" onclick="focusHotel(10)" style="border-left-color: #00a699;">
+                    <div class="hotel-card" style="border-left-color: #00a699;">
                         <div class="hotel-name">✅ 汉庭（会展中心福星地铁站店）</div>
                         <div class="hotel-info">
                             <span class="hotel-rating">⭐ 4.6分（美团真实评分）</span>
@@ -754,9 +786,10 @@
                             <span class="feature-tag" style="background:#e6f9f5;color:#00a699;">🚇 近地铁</span>
                             <span class="feature-tag" style="background:#e6f9f5;color:#00a699;">💰 性价比高</span>
                         </div>
+                        <a href="https://search.meituan.com/hotel/search?searchText=汉庭酒店会展中心福星地铁站店" target="_blank" class="hotel-detail-btn">📱 查看美团详情</a>
                     </div>
 
-                    <div class="hotel-card" onclick="focusHotel(11)" style="border-left-color: #00a699;">
+                    <div class="hotel-card" style="border-left-color: #00a699;">
                         <div class="hotel-name">✅ 汉庭（深圳皇岗店）</div>
                         <div class="hotel-info">
                             <span class="hotel-rating">⭐ 4.6分（美团真实评分）</span>
@@ -769,6 +802,7 @@
                             <span class="feature-tag" style="background:#e6f9f5;color:#00a699;">🌍 外宾适用</span>
                             <span class="feature-tag" style="background:#e6f9f5;color:#00a699;">💎 超值之选</span>
                         </div>
+                        <a href="https://search.meituan.com/hotel/search?searchText=汉庭酒店深圳皇岗店" target="_blank" class="hotel-detail-btn">📱 查看美团详情</a>
                     </div>
                 </div>
 
