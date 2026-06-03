@@ -667,6 +667,284 @@
                 font-size: 24px;
             }
         }
+
+        /* 旅游路线页面样式 */
+        .route-page-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 25px;
+            text-align: center;
+            margin: 25px auto;
+            max-width: 1600px;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+        }
+
+        .route-page-header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .route-page-header p {
+            font-size: 16px;
+            opacity: 0.95;
+        }
+
+        .route-layout {
+            max-width: 1600px;
+            margin: 25px auto;
+            padding: 0 25px;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 25px;
+        }
+
+        .route-map-container {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            overflow: hidden;
+            height: 750px;
+            position: sticky;
+            top: 80px;
+        }
+
+        .route-timeline-wrapper {
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+            padding: 30px;
+            max-height: 750px;
+            overflow-y: auto;
+        }
+
+        .route-timeline-wrapper::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .route-timeline-wrapper::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        .route-timeline-wrapper::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 4px;
+        }
+
+        .route-day-section {
+            margin-bottom: 35px;
+        }
+
+        .route-day-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 20px;
+            padding-left: 15px;
+            border-left: 5px solid #667eea;
+            background: linear-gradient(90deg, #f0f4ff 0%, transparent 100%);
+            padding: 12px 15px;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 45px;
+            padding-bottom: 25px;
+            border-left: 3px solid #e0e0e0;
+        }
+
+        .timeline-item:last-child {
+            border-left-color: transparent;
+            padding-bottom: 0;
+        }
+
+        .timeline-marker {
+            position: absolute;
+            left: -20px;
+            top: 0;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 18px;
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+            z-index: 1;
+        }
+
+        /* Day 1 紫色 */
+        .route-day-section.day1 .timeline-marker {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+        }
+        .route-day-section.day1 .timeline-item::before {
+            background: #667eea;
+        }
+        .route-day-section.day1 .route-day-title {
+            border-left-color: #667eea;
+            background: linear-gradient(90deg, #f0f4ff 0%, transparent 100%);
+        }
+
+        /* Day 2 橙色 */
+        .route-day-section.day2 .timeline-marker {
+            background: linear-gradient(135deg, #f59e0b 0%, #f97316 100%);
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+        }
+        .route-day-section.day2 .timeline-item::before {
+            background: #f59e0b;
+        }
+        .route-day-section.day2 .route-day-title {
+            border-left-color: #f59e0b;
+            background: linear-gradient(90deg, #fffbeb 0%, transparent 100%);
+        }
+
+        /* Day 3 绿色 */
+        .route-day-section.day3 .timeline-marker {
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.4);
+        }
+        .route-day-section.day3 .timeline-item::before {
+            background: #10b981;
+        }
+        .route-day-section.day3 .route-day-title {
+            border-left-color: #10b981;
+            background: linear-gradient(90deg, #ecfdf5 0%, transparent 100%);
+        }
+
+        .timeline-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 12px;
+            padding: 18px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+        }
+
+        .timeline-time {
+            display: inline-flex;
+            align-items: center;
+            background: #fef3c7;
+            color: #d97706;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .timeline-title {
+            font-size: 17px;
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 6px;
+        }
+
+        .timeline-description {
+            color: #666;
+            font-size: 13px;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .timeline-transport {
+            background: #e0e7ff;
+            border-left: 4px solid #3730a3;
+            padding: 10px 12px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+        }
+
+        .transport-label {
+            font-size: 11px;
+            color: #3730a3;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .transport-detail {
+            font-size: 13px;
+            color: #1a1a1a;
+            line-height: 1.5;
+        }
+
+        .transport-detail strong {
+            color: #667eea;
+        }
+
+        .timeline-duration {
+            display: inline-flex;
+            align-items: center;
+            background: #dcfce7;
+            color: #166534;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-top: 6px;
+        }
+
+        .timeline-tips {
+            background: #fef3c7;
+            border-left: 4px solid #d97706;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            color: #92400e;
+            margin-top: 8px;
+        }
+
+        @media (max-width: 1024px) {
+            .route-layout {
+                grid-template-columns: 1fr;
+                padding: 0 15px;
+                gap: 20px;
+            }
+            .route-map-container {
+                position: relative;
+                top: 0;
+                height: 350px;
+            }
+            .route-timeline-wrapper {
+                max-height: none;
+                padding: 20px 15px;
+            }
+            .route-page-header {
+                padding: 25px 15px;
+                margin: 15px;
+            }
+            .route-page-header h1 {
+                font-size: 22px;
+            }
+            .route-page-header p {
+                font-size: 13px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .route-map-container {
+                height: 280px;
+                border-radius: 12px;
+            }
+            .route-timeline-wrapper {
+                padding: 15px 12px;
+                border-radius: 12px;
+            }
+            .route-day-title {
+                font-size: 16px;
+                padding: 8px 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -679,6 +957,7 @@
                 <li class="navbar-item" id="nav-attractions" onclick="showPage('attractions')">🎯 香港景点</li>
                 <li class="navbar-item" id="nav-shenzhen" onclick="showPage('shenzhen')">🇨🇳 深圳景点</li>
                 <li class="navbar-item" id="nav-macau" onclick="showPage('macau')">🇲🇴 澳门景点</li>
+                <li class="navbar-item" id="nav-route" onclick="showPage('route')">🗺️ 旅游路线</li>
             </ul>
         </div>
     </nav>
@@ -1762,6 +2041,389 @@
         </div>
     </div>
 
+    <!-- 旅游路线页面 -->
+    <div class="page" id="page-route">
+        <div class="route-page-header">
+            <h1>🗺️ 深港精华三日游路线</h1>
+            <p>精心规划最佳游玩顺序 | 含交通指南 | 不走回头路 | 地铁+打车组合</p>
+        </div>
+
+        <div class="route-layout">
+            <div class="route-map-container" id="route-map-container"></div>
+
+            <div class="route-timeline-wrapper">
+                <!-- Day 1: 香港经典一日游 -->
+                <div class="route-day-section day1">
+                    <div class="route-day-title">📅 Day 1：香港经典一日游（维港+中环+太平山顶）</div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">1</div>
+                        <div class="timeline-card">
+                            <div class="timeline-time">⏰ 08:00-08:30</div>
+                            <h3 class="timeline-title">酒店出发 → 福田口岸</h3>
+                            <p class="timeline-description">从酒店步行或乘坐地铁前往福田口岸，准备过关前往香港。</p>
+                            <div class="timeline-transport">
+                                <div class="transport-label">🚇 出行方式</div>
+                                <div class="transport-detail">地铁<strong>4号线/10号线</strong>至<strong>福田口岸站</strong>，步行约5分钟</div>
+                            </div>
+                            <div class="timeline-duration">⏱️ 约15分钟</div>
+                            <div class="timeline-tips">💡 记得带港澳通行证+有效签注，建议提前换好港币</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">2</div>
+                        <div class="timeline-card">
+                            <div class="timeline-time">⏰ 08:30-09:00</div>
+                            <h3 class="timeline-title">福田口岸过关 → 落马洲站</h3>
+                            <p class="timeline-description">自助通关后步行至港铁落马洲站，准备乘坐东铁线前往香港市区。</p>
+                            <div class="timeline-transport">
+                                <div class="transport-label">🚶 出行方式</div>
+                                <div class="transport-detail">步行过关，上楼即达<strong>港铁落马洲站</strong></div>
+                            </div>
+                            <div class="timeline-duration">⏱️ 过关约15-20分钟</div>
+                            <div class="timeline-tips">💡 过关后购买八达通卡（押金HK$50可退），地铁巴士通用</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">3</div>
+                        <div class="timeline-card">
+                            <div class="timeline-time">⏰ 09:00-09:30</div>
+                            <h3 class="timeline-title">落马洲 → 尖东站（维港）</h3>
+                            <p class="timeline-description">乘坐港铁东铁线直达尖东站，出站即达维多利亚港海滨。</p>
+                            <div class="timeline-transport">
+                                <div class="transport-label">🚆 出行方式</div>
+                                <div class="transport-detail">港铁<strong>东铁线</strong>（金钟方向），<strong>12站</strong>至<strong>尖东站</strong>J出口</div>
+                            </div>
+                            <div class="timeline-duration">⏱️ 车程约30分钟 | 票价HK$57</div>
+                            <div class="timeline-tips">💡 建议坐上层车厢，视野更好</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">4</div>
+                        <div class="timeline-card">
+                            <div class="timeline-time">⏰ 09:30-11:30</div>
+                            <h3 class="timeline-title">🌟 维多利亚港 & 星光大道</h3>
+                            <p class="timeline-description">沿海滨步行，欣赏维港两岸风光，打卡明星手印墙、麦兜铜像等经典机位。</p>
+                            <div class="timeline-transport">
+                                <div class="transport-label">🚶 游玩方式</div>
+                                <div class="transport-detail">从尖东站J出口出，沿海滨步行至星光大道，全程约1.5公里</div>
+                            </div>
+                            <div class="timeline-duration">⏱️ 游玩约2小时</div>
+                            <div class="timeline-tips">💡 白天看海景，傍晚看灯光秀，建议在此等待日落</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">5</div>
+                        <div class="timeline-card">
+                            <div class="timeline-time">⏰ 11:30-12:00</div>
+                            <h3 class="timeline-title">尖沙咀 → 中环（天星小轮）</h3>
+                            <p class="timeline-description">乘坐百年历史的天星小轮横渡维港，体验最浪漫的香港交通方式。</p>
+                            <div class="timeline-transport">
+                                <div class="transport-label">🚢 出行方式</div>
+                                <div class="transport-detail"><strong>天星小轮</strong>（尖沙咀码头→中环码头），下层票价HK$2.7</div>
+                            </div>
+                            <div class="timeline-duration">⏱️ 船程约8分钟</div>
+                            <div class="timeline-tips">💡 建议坐上层（HK$3.7），视野更佳，可拍维港全景</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">6</div>
+                        <div class="timeline-card">
+                            <div class="timeline-time">⏰ 12:00-13:30</div>
+                            <h3 class="timeline-title">中环摩天轮 & 午餐</h3>
+                            <p class="timeline-description">在中环海滨乘坐摩天轮俯瞰维港，周边有大量美食选择。</p>
+                            <div class="timeline-transport">
+                                <div class="transport-label">🚶 出行方式</div>
+                                <div class="transport-detail">从中环码头步行约<strong>5分钟</strong>至中环海滨摩天轮</div>
+                            </div>
+                            <div class="timeline-duration">⏱️ 游玩+午餐约1.5小时</div>
+                            <div class="timeline-tips">💡 摩天轮20港币/3圈，周末建议提前网上购票避开排队</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">7</div>
+                        <div class="timeline-card">
+                            <div class="timeline-time">⏰ 13:30-15:30</div>
+                            <h3 class="timeline-title">🌟 半山扶梯 & 石板街</h3>
+                            <p class="timeline-description">体验世界最长户外有盖行人扶梯，沿途经过《重庆森林》《无间道》等经典取景地。</p>
+                            <div class="timeline-transport">
+                                <div class="transport-label">🚶 出行方式</div>
+                                <div class="transport-detail">从中环步行至<strong>半山扶梯</strong>起点（德辅道中），沿扶梯上行</div>
+                            </div>
+                            <div class="timeline-duration">⏱️ 游玩约2小时</div>
+                            <div class="timeline-tips">💡 沿途可逛石板街、大馆、PMQ元创方，文艺青年必去</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">8</div>
+                        <div class="timeline-card">
+                            <div class="timeline-time">⏰ 15:30-16:00</div>
+                            <h3 class="timeline-title">中环 → 太平山顶</h3>
+                            <p class="timeline-description">乘坐山顶缆车前往太平山顶，俯瞰香港全景。</p>
+                            <div class="timeline-transport">
+                                <div class="transport-label">🚡 出行方式</div>
+                                <div class="transport-detail">步行至<strong>花园道缆车站</strong>，乘坐<strong>山顶缆车</strong>（单程HK$62）</div>
+                            </div>
+                            <div class="timeline-duration">⏱️ 缆车约7分钟</div>
+                            <div class="timeline-tips">💡 上山坐右边，下山坐左边，观景最佳！也可乘15路巴士（更实惠）</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">9</div>
+                        <div class="timeline-card">
+                            <div class="timeline-time">⏰ 16:00-18:30</div>
+                            <h3 class="timeline-title">🌟 太平山顶（日落+夜景）</h3>
+                            <p class="timeline-description">在凌霄阁观景台欣赏香港全景，等待日落和夜景，这是香港最经典的观景体验。</p>
+                            <div class="timeline-transport">
+                                <div class="transport-label">🚶 游玩方式</div>
+                                <div class="transport-detail">凌霄阁观景台+山顶环回步行径，全程约2公里</div>
+                            </div>
+                            <div class="timeline-duration">⏱️ 游玩约2.5小时</div>
+                            <div class="timeline-tips">💡 日落时间约18:00-19:00（夏季），建议提前1小时到达占位</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">10</div>
+                        <div class="timeline-card">
+                            <div class="timeline-time">⏰ 18:30-19:30</div>
+                            <h3 class="timeline-title">太平山顶 → 酒店（返程）</h3>
+                            <p class="timeline-description">乘坐缆车或巴士下山，搭乘港铁返回深圳。</p>
+                            <div class="timeline-transport">
+                                <div class="transport-label">🚆 出行方式</div>
+                                <div class="transport-detail">山顶缆车/15路巴士下山 → 港铁<strong>东铁线</strong>返回<strong>落马洲</strong> → 过关回深圳</div>
+                            </div>
+                            <div class="timeline-duration">⏱️ 全程约1小时</div>
+                            <div class="timeline-tips">💡 东铁线末班约00:30，注意时间；也可选择皇岗口岸（24小时通关）</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 2: 香港深度游 -->
+                <div class="route-day-section day2">
+                    <div class="route-day-title">📅 Day 2：香港深度游（旺角+坚尼地城+西营盘）</div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">1</div>
+                        <div class="timeline-card">
+                            <div class="timeline-time">⏰ 09:00-09:30</div>
+                            <h3 class="timeline-title">酒店出发 → 旺角</h3>
+                            <p class="timeline-description">过关后乘坐港铁直达旺角，开启市井文化之旅。</p>
+                            <div class="timeline-transport">
+                                <div class="transport-label">🚆 出行方式</div>
+                                <div class="transport-detail">港铁<strong>东铁线</strong>至<strong>九龙塘</strong>，换乘<strong>观塘线</strong>至<strong>旺角站</strong>E1/E2出口</div>
+                            </div>
+                            <div class="timeline-duration">⏱️ 车程约40分钟</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">2</div>
+                        <div class="timeline-card">
+                            <div class="timeline-time">⏰ 09:30-12:00</div>
+                            <h3 class="timeline-title">🌟 旺角 & 油麻地</h3>
+                            <p class="timeline-description">逛朗豪坊网红扶梯、女人街、波鞋街、金鱼街，打卡油麻地警署TVB经典场景。</p>
+                            <div class="timeline-transport">
+                                <div class="transport-label">🚶 游玩方式</div>
+                                <div class="transport-detail">旺角各街区步行游览，全程约3公里</div>
+                            </div>
+                            <div class="timeline-duration">⏱️ 游玩约2.5小时</div>
+                            <div class="timeline-tips">💡 推荐早餐：澳洲牛奶公司（炒蛋+多士），排队但值得</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">3</div>
+                        <div class="timeline-card">
+                            <div class="timeline-time">⏰ 12:00-12:30</div>
+                            <h3 class="timeline-title">旺角 → 坚尼地城</h3>
+                            <p class="timeline-description">乘坐港铁前往香港岛最西端的文艺小清新街区。</p>
+                            <div class="timeline-transport">
+                                <div class="transport-label">🚆 出行方式</div>
+                                <div class="transport-detail">港铁<strong>荃湾线</strong>（中环方向）至<strong>中环</strong>，换乘<strong>港岛线</strong>至<strong>坚尼地城站</strong>C出口</div>
+                            </div>
+                            <div class="timeline-duration">⏱️ 车程约25分钟</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">4</div>
+                        <div class="timeline-card">
+                            <div class="timeline-time">⏰ 12:30-15:00</div>
+                            <h3 class="timeline-title">🌟 坚尼地城海边</h3>
+                            <p class="timeline-description">打卡临海篮球场、网红咖啡店，感受蓝调小清新港风。</p>
+                            <div class="timeline-transport">
+                                <div class="transport-label">🚶 游玩方式</div>
+                                <div class="transport-detail">地铁C口出，左手边楼梯上去就是临海篮球场，步行约3分钟</div>
+                            </div>
+                            <div class="timeline-duration">⏱️ 游玩约2.5小时</div>
+                            <div class="timeline-tips">💡 推荐打卡：新海旁咖啡+网红咖啡店，下午光线最佳</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">5</div>
+                        <div class="timeline-card">
+                            <div class="timeline-time">⏰ 15:00-15:10</div>
+                            <h3 class="timeline-title">坚尼地城 → 西营盘</h3>
+                            <p class="timeline-description">步行或乘坐港铁一站即可到达。</p>
+                            <div class="timeline-transport">
+                                <div class="transport-label">🚆 出行方式</div>
+                                <div class="transport-detail">港铁<strong>港岛线</strong>（柴湾方向）<strong>1站</strong>至<strong>西营盘站</strong>B2/B3出口</div>
+                            </div>
+                            <div class="timeline-duration">⏱️ 车程约2分钟</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">6</div>
+                        <div class="timeline-card">
+                            <div class="timeline-time">⏰ 15:10-17:30</div>
+                            <h3 class="timeline-title">🌟 西营盘"路的尽头是海"</h3>
+                            <p class="timeline-description">打卡著名的"路的尽头是海"魔幻机位，逛艺里坊涂鸦墙和彩虹楼梯。</p>
+                            <div class="timeline-transport">
+                                <div class="transport-label">🚶 游玩方式</div>
+                                <div class="transport-detail">地铁B3口出来导航正街与第三街交汇处，步行约5分钟</div>
+                            </div>
+                            <div class="timeline-duration">⏱️ 游玩约2小时</div>
+                            <div class="timeline-tips">💡 下午3-5点光线最美，适合拍照；涂鸦墙在艺里坊</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">7</div>
+                        <div class="timeline-card">
+                            <div class="timeline-time">⏰ 17:30-19:00</div>
+                            <h3 class="timeline-title">西营盘 → 酒店（返程）</h3>
+                            <p class="timeline-description">乘坐港铁返回深圳，结束充实的一天。</p>
+                            <div class="timeline-transport">
+                                <div class="transport-label">🚆 出行方式</div>
+                                <div class="transport-detail">港铁<strong>港岛线</strong>→<strong>中环</strong>→<strong>东铁线</strong>→<strong>落马洲</strong>→过关回深圳</div>
+                            </div>
+                            <div class="timeline-duration">⏱️ 全程约1小时</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Day 3: 深圳休闲游 -->
+                <div class="route-day-section day3">
+                    <div class="route-day-title">📅 Day 3：深圳休闲游（莲花山+深圳湾+世界之窗）</div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">1</div>
+                        <div class="timeline-card">
+                            <div class="timeline-time">⏰ 09:00-09:20</div>
+                            <h3 class="timeline-title">酒店出发 → 莲花山公园</h3>
+                            <p class="timeline-description">从酒店乘坐地铁直达莲花山公园，俯瞰深圳CBD全景。</p>
+                            <div class="timeline-transport">
+                                <div class="transport-label">🚇 出行方式</div>
+                                <div class="transport-detail">地铁<strong>4号线</strong>至<strong>少年宫站</strong>F1出口，步行约5分钟</div>
+                            </div>
+                            <div class="timeline-duration">⏱️ 车程约15分钟</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">2</div>
+                        <div class="timeline-card">
+                            <div class="timeline-time">⏰ 09:20-11:00</div>
+                            <h3 class="timeline-title">🌟 莲花山公园</h3>
+                            <p class="timeline-description">登顶俯瞰福田CBD繁华夜景，瞻仰邓小平雕像，感受深圳城市魅力。</p>
+                            <div class="timeline-transport">
+                                <div class="transport-label">🚶 游玩方式</div>
+                                <div class="transport-detail">登山步道约1.5公里，坡度平缓，适合各年龄段</div>
+                            </div>
+                            <div class="timeline-duration">⏱️ 游玩约1.5小时</div>
+                            <div class="timeline-tips">💡 山顶视野极佳，可远眺平安金融中心；建议带水</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">3</div>
+                        <div class="timeline-card">
+                            <div class="timeline-time">⏰ 11:00-11:30</div>
+                            <h3 class="timeline-title">莲花山 → 深圳湾公园</h3>
+                            <p class="timeline-description">乘坐地铁前往深圳湾公园，享受海滨风光。</p>
+                            <div class="timeline-transport">
+                                <div class="transport-label">🚇 出行方式</div>
+                                <div class="transport-detail">地铁<strong>4号线</strong>至<strong>会展中心</strong>，换乘<strong>1号线</strong>至<strong>车公庙</strong>，换乘<strong>9号线</strong>至<strong>深圳湾公园站</strong></div>
+                            </div>
+                            <div class="timeline-duration">⏱️ 车程约35分钟</div>
+                            <div class="timeline-tips">💡 也可打车约20分钟，费用约25元</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">4</div>
+                        <div class="timeline-card">
+                            <div class="timeline-time">⏰ 11:30-14:00</div>
+                            <h3 class="timeline-title">🌟 深圳湾公园</h3>
+                            <p class="timeline-description">沿着海滨栈道散步，欣赏深圳湾大桥美景，在草坪上野餐休息。</p>
+                            <div class="timeline-transport">
+                                <div class="transport-label">🚶 游玩方式</div>
+                                <div class="transport-detail">海滨栈道全长约15公里，可选择步行或骑行</div>
+                            </div>
+                            <div class="timeline-duration">⏱️ 游玩约2.5小时</div>
+                            <div class="timeline-tips">💡 推荐租自行车骑行（约20元/小时），傍晚日落绝美</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">5</div>
+                        <div class="timeline-card">
+                            <div class="timeline-time">⏰ 14:00-14:30</div>
+                            <h3 class="timeline-title">深圳湾 → 世界之窗</h3>
+                            <p class="timeline-description">乘坐地铁前往世界之窗，体验世界微缩景观。</p>
+                            <div class="timeline-transport">
+                                <div class="transport-label">🚇 出行方式</div>
+                                <div class="transport-detail">地铁<strong>1号线</strong>（机场东方向）<strong>3站</strong>至<strong>世界之窗站</strong>A出口</div>
+                            </div>
+                            <div class="timeline-duration">⏱️ 车程约10分钟</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">6</div>
+                        <div class="timeline-card">
+                            <div class="timeline-time">⏰ 14:30-18:00</div>
+                            <h3 class="timeline-title">🌟 世界之窗</h3>
+                            <p class="timeline-description">一天之内游遍世界！130多个世界著名景点微缩景观，还有精彩的花车巡游和夜间灯光秀。</p>
+                            <div class="timeline-transport">
+                                <div class="transport-label">🚶 游玩方式</div>
+                                <div class="transport-detail">园区内步行游览，建议按大洲顺序参观</div>
+                            </div>
+                            <div class="timeline-duration">⏱️ 游玩约3.5小时</div>
+                            <div class="timeline-tips">💡 成人票约220元，建议17:00后入园看夜景灯光秀（票价更优惠）</div>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item">
+                        <div class="timeline-marker">7</div>
+                        <div class="timeline-card">
+                            <div class="timeline-time">⏰ 18:00-18:30</div>
+                            <h3 class="timeline-title">世界之窗 → 酒店（返程）</h3>
+                            <p class="timeline-description">结束愉快的旅程，返回酒店休息。</p>
+                            <div class="timeline-transport">
+                                <div class="transport-label">🚇 出行方式</div>
+                                <div class="transport-detail">地铁<strong>1号线</strong>→<strong>会展中心</strong>换乘<strong>4号线</strong>至<strong>福田口岸</strong>附近</div>
+                            </div>
+                            <div class="timeline-duration">⏱️ 车程约25分钟</div>
+                            <div class="timeline-tips">💡 也可直接打车回酒店，约20分钟，费用约20元</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script type="text/javascript">
         window._AMapSecurityConfig = {
             securityJsCode: '09b352ffdfcffff15593ec7fff9cafc3',
@@ -2110,6 +2772,260 @@
         }
 
         document.addEventListener('DOMContentLoaded', initMap);
+    </script>
+    
+    <script>
+        // 旅游路线地图
+        let routeMap;
+        let routeMarkers = [];
+        
+        // 交通方式图标映射
+        const transportIcons = {
+            'metro': '🚇',
+            'walk': '🚶',
+            'ferry': '🚢',
+            'tram': '🚡',
+            'bus': '🚌',
+            'taxi': '🚗',
+            'train': '🚄'
+        };
+        
+        // 路线数据 - Day 1 香港经典游（与时间线完全对应）
+        const day1Route = [
+            { name: "酒店/福田口岸", position: [114.066, 22.518], day: 1, transport: null, type: 'start' },
+            { name: "落马洲站", position: [114.075, 22.520], day: 1, transport: 'walk', type: 'transit' },
+            { name: "尖东站", position: [114.173, 22.293], day: 1, transport: 'metro', type: 'transit' },
+            { name: "维多利亚港", position: [114.168, 22.285], day: 1, transport: 'walk', type: 'attraction' },
+            { name: "天星小轮", position: [114.166, 22.287], day: 1, transport: 'ferry', type: 'transit' },
+            { name: "中环摩天轮", position: [114.162, 22.280], day: 1, transport: 'walk', type: 'attraction' },
+            { name: "半山扶梯", position: [114.155, 22.282], day: 1, transport: 'walk', type: 'attraction' },
+            { name: "山顶缆车站", position: [114.152, 22.276], day: 1, transport: 'walk', type: 'transit' },
+            { name: "太平山顶", position: [114.155, 22.270], day: 1, transport: 'tram', type: 'attraction' },
+            { name: "返程酒店", position: [114.066, 22.518], day: 1, transport: 'train', type: 'end' }
+        ];
+        
+        // 路线数据 - Day 2 香港深度游
+        const day2Route = [
+            { name: "旺角", position: [114.170, 22.320], day: 2, transport: 'metro', type: 'attraction' },
+            { name: "油麻地", position: [114.160, 22.310], day: 2, transport: 'walk', type: 'attraction' },
+            { name: "坚尼地城", position: [114.124, 22.282], day: 2, transport: 'metro', type: 'attraction' },
+            { name: "西营盘", position: [114.138, 22.286], day: 2, transport: 'metro', type: 'attraction' },
+            { name: "返程酒店", position: [114.066, 22.518], day: 2, transport: 'train', type: 'end' }
+        ];
+        
+        // 路线数据 - Day 3 深圳休闲游
+        const day3Route = [
+            { name: "莲花山公园", position: [114.055, 22.553], day: 3, transport: 'metro', type: 'attraction' },
+            { name: "深圳湾公园", position: [113.944, 22.518], day: 3, transport: 'taxi', type: 'attraction' },
+            { name: "世界之窗", position: [113.974, 22.536], day: 3, transport: 'metro', type: 'attraction' },
+            { name: "返程酒店", position: [114.066, 22.518], day: 3, transport: 'metro', type: 'end' }
+        ];
+        
+        // 生成平滑曲线路径（多点插值 + 正弦偏移）
+        function generateSmoothPath(start, end, curveDir) {
+            const points = [];
+            const dx = end[0] - start[0];
+            const dy = end[1] - start[1];
+            const dist = Math.sqrt(dx * dx + dy * dy);
+            
+            if (dist < 0.002) {
+                return [start, end];
+            }
+            
+            const numPoints = Math.max(30, Math.floor(dist * 800));
+            const offset = dist * 0.1 * curveDir;
+            const perpX = -dy / dist;
+            const perpY = dx / dist;
+            
+            for (let i = 0; i <= numPoints; i++) {
+                const t = i / numPoints;
+                const curveOffset = offset * Math.sin(t * Math.PI);
+                const lng = start[0] + dx * t + curveOffset * perpX;
+                const lat = start[1] + dy * t + curveOffset * perpY;
+                points.push([lng, lat]);
+            }
+            return points;
+        }
+        
+        function initRouteMap() {
+            routeMap = new AMap.Map('route-map-container', {
+                zoom: 12,
+                center: [114.173, 22.293],
+                viewMode: '2D'
+            });
+            
+            AMap.plugin(['AMap.ToolBar', 'AMap.Scale'], function() {
+                routeMap.addControl(new AMap.ToolBar({position: 'RT'}));
+                routeMap.addControl(new AMap.Scale());
+            });
+            
+            // 绘制Day 1路线
+            drawRoute(day1Route, '#667eea', 'day1');
+            // 绘制Day 2路线
+            drawRoute(day2Route, '#f59e0b', 'day2');
+            // 绘制Day 3路线
+            drawRoute(day3Route, '#10b981', 'day3');
+            
+            // 自适应视野
+            const allPoints = [...day1Route, ...day2Route, ...day3Route].map(p => p.position);
+            routeMap.setFitView(null, false, [60, 60, 60, 60]);
+        }
+        
+        function drawRoute(routeData, color, dayId) {
+            routeData.forEach((point, index) => {
+                // 根据类型决定标记样式
+                let markerHTML, markerSize, markerOffset;
+                const type = point.type || 'attraction';
+                
+                if (type === 'start') {
+                    // 起点：大圆 + 🏨
+                    markerSize = 36;
+                    markerOffset = -18;
+                    markerHTML = `<div style="
+                        width: ${markerSize}px; height: ${markerSize}px;
+                        background: linear-gradient(135deg, ${color} 0%, ${color}cc 100%);
+                        border-radius: 50%;
+                        display: flex; align-items: center; justify-content: center;
+                        color: white; font-size: 18px;
+                        border: 3px solid white;
+                        box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+                    ">🏨</div>`;
+                } else if (type === 'end') {
+                    // 终点/返程：大圆 + 🏠
+                    markerSize = 36;
+                    markerOffset = -18;
+                    markerHTML = `<div style="
+                        width: ${markerSize}px; height: ${markerSize}px;
+                        background: linear-gradient(135deg, #6b7280 0%, #9ca3af 100%);
+                        border-radius: 50%;
+                        display: flex; align-items: center; justify-content: center;
+                        color: white; font-size: 18px;
+                        border: 3px solid white;
+                        box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+                    ">🏠</div>`;
+                } else if (type === 'transit') {
+                    // 途经点/交通站：小圆 + 序号
+                    markerSize = 26;
+                    markerOffset = -13;
+                    markerHTML = `<div style="
+                        width: ${markerSize}px; height: ${markerSize}px;
+                        background: white;
+                        border-radius: 50%;
+                        display: flex; align-items: center; justify-content: center;
+                        color: ${color}; font-weight: bold; font-size: 12px;
+                        border: 2.5px solid ${color};
+                        box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+                    ">${index + 1}</div>`;
+                } else {
+                    // 景点：实心大圆 + 序号
+                    markerSize = 34;
+                    markerOffset = -17;
+                    markerHTML = `<div style="
+                        width: ${markerSize}px; height: ${markerSize}px;
+                        background: ${color};
+                        border-radius: 50%;
+                        display: flex; align-items: center; justify-content: center;
+                        color: white; font-weight: bold; font-size: 14px;
+                        border: 3px solid white;
+                        box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+                    ">${index + 1}</div>`;
+                }
+                
+                const marker = new AMap.Marker({
+                    position: point.position,
+                    content: markerHTML,
+                    offset: new AMap.Pixel(markerOffset, markerOffset),
+                    zIndex: type === 'attraction' ? 100 : 90
+                });
+                
+                marker.setMap(routeMap);
+                routeMarkers.push(marker);
+                
+                // 添加信息窗体
+                const typeLabel = type === 'start' ? '起点' : type === 'end' ? '返程' : type === 'transit' ? '途经' : '景点';
+                const infoWindow = new AMap.InfoWindow({
+                    content: `<div style="padding: 10px;">
+                        <h3 style="margin: 0 0 5px 0; font-size: 14px;">${point.name}</h3>
+                        <p style="margin: 0; font-size: 12px; color: #666;">Day ${point.day} 第${index + 1}站 · ${typeLabel}</p>
+                    </div>`,
+                    offset: new AMap.Pixel(0, -20)
+                });
+                
+                marker.on('click', function() {
+                    infoWindow.open(routeMap, point.position);
+                });
+                
+                // 绘制连线和交通图标
+                if (index < routeData.length - 1) {
+                    const nextPoint = routeData[index + 1];
+                    // 返程线用虚线
+                    const isReturn = (type === 'end' || nextPoint.type === 'end');
+                    // 交替曲线方向
+                    const curveDir = (index % 2 === 0) ? 1 : -1;
+                    const curvedPath = generateSmoothPath(point.position, nextPoint.position, curveDir);
+                    
+                    const polyline = new AMap.Polyline({
+                        path: curvedPath,
+                        strokeColor: isReturn ? '#9ca3af' : color,
+                        strokeWeight: isReturn ? 3 : 4,
+                        strokeOpacity: isReturn ? 0.5 : 0.75,
+                        lineJoin: 'round',
+                        lineCap: 'round',
+                        strokeStyle: isReturn ? 'dashed' : 'solid',
+                        showDir: !isReturn,
+                        dirPos: 'mid',
+                        dirColor: isReturn ? '#9ca3af' : color
+                    });
+                    polyline.setMap(routeMap);
+                    
+                    // 在路线中点添加交通方式图标
+                    const transport = nextPoint.transport || 'walk';
+                    const iconEmoji = transportIcons[transport] || '🚶';
+                    const midIdx = Math.floor(curvedPath.length / 2);
+                    const midPos = curvedPath[midIdx];
+                    
+                    const iconBg = isReturn ? '#9ca3af' : color;
+                    const iconContent = `
+                        <div style="
+                            width: 28px;
+                            height: 28px;
+                            background: white;
+                            border-radius: 50%;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            font-size: 16px;
+                            border: 2px solid ${iconBg};
+                            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+                        ">${iconEmoji}</div>
+                    `;
+                    
+                    const iconMarker = new AMap.Marker({
+                        position: midPos,
+                        content: iconContent,
+                        offset: new AMap.Pixel(-14, -14),
+                        zIndex: 80
+                    });
+                    iconMarker.setMap(routeMap);
+                }
+            });
+        }
+        
+        // 当切换到路线页面时初始化地图
+        const originalShowPage = showPage;
+        showPage = function(pageName) {
+            originalShowPage(pageName);
+            
+            if (pageName === 'route') {
+                setTimeout(() => {
+                    if (!routeMap) {
+                        initRouteMap();
+                    } else {
+                        routeMap.resize();
+                    }
+                }, 100);
+            }
+        };
     </script>
 </body>
 </html>
