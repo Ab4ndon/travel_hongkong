@@ -676,7 +676,9 @@
             <div class="navbar-brand" onclick="showPage('hotels')">🗺️ 深港旅行助手</div>
             <ul class="navbar-menu">
                 <li class="navbar-item active" id="nav-hotels" onclick="showPage('hotels')">🏨 酒店选择</li>
-                <li class="navbar-item" id="nav-attractions" onclick="showPage('attractions')">🎯 香港必去景点</li>
+                <li class="navbar-item" id="nav-attractions" onclick="showPage('attractions')">🎯 香港景点</li>
+                <li class="navbar-item" id="nav-shenzhen" onclick="showPage('shenzhen')">🇨🇳 深圳景点</li>
+                <li class="navbar-item" id="nav-macau" onclick="showPage('macau')">🇲🇴 澳门景点</li>
             </ul>
         </div>
     </nav>
@@ -811,13 +813,69 @@
                         <h4 style="color:#1e40af;margin-bottom:10px;">📍 口岸选择建议</h4>
                         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;font-size:13px;">
                             <div style="background:white;padding:12px;border-radius:8px;">
-                                <strong style="color:#e74c3c;"> 福田口岸</strong><br>
+                                <strong style="color:#e74c3c;">🚶 福田口岸</strong><br>
                                 <span style="color:#666;">连接港铁落马洲站<br>东铁线直达市区<br>⏰ 6:30-22:30</span>
                             </div>
                             <div style="background:white;padding:12px;border-radius:8px;">
                                 <strong style="color:#e74c3c;">🚪 皇岗口岸</strong><br>
-                                <span style="color:#666;">24小时通关<br>巴士接驳方便<br> 全天开放</span>
+                                <span style="color:#666;">24小时通关<br>巴士接驳方便<br>🕐 全天开放</span>
                             </div>
+                        </div>
+                    </div>
+
+                    <div style="background:#fef3c7;border-radius:10px;padding:15px;margin-top:15px;border-left:4px solid #f59e0b;">
+                        <h4 style="color:#92400e;margin-bottom:10px;">🚇 福田口岸过关后交通详细指南</h4>
+                        
+                        <div style="background:white;border-radius:8px;padding:12px;margin-bottom:10px;">
+                            <strong style="color:#059669;">📋 过关流程</strong>
+                            <ol style="margin:8px 0 0 20px;color:#666;font-size:13px;line-height:1.8;">
+                                <li>从酒店出发 → 地铁4号线/10号线到<strong>福田口岸站</strong></li>
+                                <li>进入联检大楼 → 港澳通行证自助通关（约2-5秒）</li>
+                                <li>走过人行通道桥 → 到达香港<strong>落马洲管制站</strong></li>
+                                <li>完成香港入境手续 → 上二楼就是<strong>港铁落马洲站</strong></li>
+                            </ol>
+                        </div>
+
+                        <div style="background:white;border-radius:8px;padding:12px;margin-bottom:10px;">
+                            <strong style="color:#7c3aed;">🚆 港铁东铁线（落马洲→香港各区）</strong>
+                            <p style="color:#666;font-size:12px;margin:5px 0;">过关后直接上二楼乘坐，往<strong>金钟方向</strong></p>
+                            <table style="width:100%;border-collapse:collapse;margin-top:8px;font-size:12px;">
+                                <thead>
+                                    <tr style="background:#f3f4f6;">
+                                        <th style="padding:6px;text-align:left;border-bottom:1px solid #e5e7eb;">目的地</th>
+                                        <th style="padding:6px;text-align:center;border-bottom:1px solid #e5e7eb;">站数</th>
+                                        <th style="padding:6px;text-align:center;border-bottom:1px solid #e5e7eb;">车程</th>
+                                        <th style="padding:6px;text-align:right;border-bottom:1px solid #e5e7eb;">票价(HKD)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td style="padding:6px;border-bottom:1px solid #f3f4f6;">上水</td><td style="padding:6px;text-align:center;border-bottom:1px solid #f3f4f6;">2站</td><td style="padding:6px;text-align:center;border-bottom:1px solid #f3f4f6;">约4分钟</td><td style="padding:6px;text-align:right;border-bottom:1px solid #f3f4f6;">$27</td></tr>
+                                    <tr style="background:#f9fafb;"><td style="padding:6px;border-bottom:1px solid #f3f4f6;">大埔墟</td><td style="padding:6px;text-align:center;border-bottom:1px solid #f3f4f6;">4站</td><td style="padding:6px;text-align:center;border-bottom:1px solid #f3f4f6;">约11分钟</td><td style="padding:6px;text-align:right;border-bottom:1px solid #f3f4f6;">$39</td></tr>
+                                    <tr><td style="padding:6px;border-bottom:1px solid #f3f4f6;">沙田</td><td style="padding:6px;text-align:center;border-bottom:1px solid #f3f4f6;">6站</td><td style="padding:6px;text-align:center;border-bottom:1px solid #f3f4f6;">约17分钟</td><td style="padding:6px;text-align:right;border-bottom:1px solid #f3f4f6;">$45</td></tr>
+                                    <tr style="background:#f9fafb;"><td style="padding:6px;border-bottom:1px solid #f3f4f6;">九龙塘</td><td style="padding:6px;text-align:center;border-bottom:1px solid #f3f4f6;">9站</td><td style="padding:6px;text-align:center;border-bottom:1px solid #f3f4f6;">约24分钟</td><td style="padding:6px;text-align:right;border-bottom:1px solid #f3f4f6;">$53</td></tr>
+                                    <tr><td style="padding:6px;border-bottom:1px solid #f3f4f6;">红磡</td><td style="padding:6px;text-align:center;border-bottom:1px solid #f3f4f6;">11站</td><td style="padding:6px;text-align:center;border-bottom:1px solid #f3f4f6;">约28分钟</td><td style="padding:6px;text-align:right;border-bottom:1px solid #f3f4f6;">$56</td></tr>
+                                    <tr style="background:#fef3c7;"><td style="padding:6px;border-bottom:1px solid #f3f4f6;"><strong>尖东/尖沙咀</strong></td><td style="padding:6px;text-align:center;border-bottom:1px solid #f3f4f6;">12站</td><td style="padding:6px;text-align:center;border-bottom:1px solid #f3f4f6;">约30分钟</td><td style="padding:6px;text-align:right;border-bottom:1px solid #f3f4f6;"><strong>$57</strong></td></tr>
+                                    <tr style="background:#fef3c7;"><td style="padding:6px;"><strong>金钟（终点）</strong></td><td style="padding:6px;text-align:center;">14站</td><td style="padding:6px;text-align:center;">约36分钟</td><td style="padding:6px;text-align:right;"><strong>$59</strong></td></tr>
+                                </tbody>
+                            </table>
+                            <p style="color:#666;font-size:11px;margin-top:5px;">🕐 东铁线运营时间：约05:50 - 00:30</p>
+                        </div>
+
+                        <div style="background:white;border-radius:8px;padding:12px;margin-bottom:10px;">
+                            <strong style="color:#dc2626;">💡 实用Tips</strong>
+                            <ul style="margin:8px 0 0 20px;color:#666;font-size:13px;line-height:1.8;">
+                                <li><strong>八达通卡</strong>：过关后购买（押金HK$50可退），地铁巴士通用</li>
+                                <li><strong>换汇</strong>：口岸内有货币兑换点，建议提前换好港币</li>
+                                <li><strong>避开高峰</strong>：周末/节假日9-11点、16-19点人最多</li>
+                                <li><strong>备选巴士</strong>：过关后可乘B1路去元朗，或跨境巴士去各区</li>
+                            </ul>
+                        </div>
+
+                        <div style="background:#ecfdf5;border-radius:8px;padding:12px;">
+                            <strong style="color:#059669;">⏱️ 全程时间估算</strong>
+                            <p style="color:#666;font-size:13px;margin:5px 0 0 0;">
+                                酒店出发 → 口岸(10分钟) + 过关(15分钟) + 港铁到尖沙咀(30分钟) = <strong style="color:#059669;">约55分钟到达香港市区</strong>
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -1118,6 +1176,592 @@
         </div>
     </div>
 
+    <!-- 深圳景点页面 -->
+    <div class="page" id="page-shenzhen">
+        <div class="attractions-hero">
+            <h1>🇨🇳 深圳必去景点 TOP 10</h1>
+            <p>美团旅行 + 小红书双平台推荐 | 经典主题乐园 · 海滨风光 · 历史人文一网打尽</p>
+            <div style="background:rgba(255,255,255,0.15);border-radius:10px;padding:12px 20px;margin-top:15px;font-size:14px;backdrop-filter:blur(5px);display:inline-block;">
+                💡 <strong>使用说明：</strong>点击下方"📕 查看小红书攻略"按钮，<strong>移动端将自动尝试唤起小红书APP</strong>直接打开对应笔记，PC端将打开网页版
+            </div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 第1名：世界之窗 -->
+            <div class="attraction-card">
+                <img src="https://s3.ap-southeast-1.amazonaws.com/images.travel.com/shenzhen/window_of_world.jpg" alt="世界之窗" class="attraction-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22250%22><rect fill=%22%23667eea%22 width=%22400%22 height=%22250%22/><text x=%2250%%22 y=%2250%%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2220%22>世界之窗</text></svg>'">
+                <div class="attraction-content">
+                    <div class="attraction-header">
+                        <span class="attraction-rank">1</span>
+                        <h3 class="attraction-name">世界之窗</h3>
+                        <span class="attraction-rating">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <div class="attraction-location">南山区华侨城</div>
+                    <div class="attraction-description">
+                        世界微缩景观集合地，不出国门体验世界各国风情！汇集了130多个世界著名景点的微缩景观，还有精彩的花车巡游和夜间灯光秀，让你一天之内游遍世界！
+                    </div>
+                    <div class="attraction-features">
+                        <span class="attraction-tag">🌍 世界微缩景观</span>
+                        <span class="attraction-tag">🎪 花车巡游</span>
+                        <span class="attraction-tag">🎆 夜间灯光秀</span>
+                        <span class="attraction-tag">📸 拍照打卡</span>
+                    </div>
+                    <div class="attraction-price">
+                        💰 成人票约220元 | 建议游玩半天到一天
+                    </div>
+                    <a href="javascript:void(0)" onclick="return openXiaohongshuNote('65a8c3f0000000001b02d7e3')" class="attraction-link">
+                        📕 查看小红书攻略
+                    </a>
+                </div>
+            </div>
+
+            <!-- 第2名：深圳欢乐谷 -->
+            <div class="attraction-card">
+                <img src="https://s3.ap-southeast-1.amazonaws.com/images.travel.com/shenzhen/happy_valley.jpg" alt="深圳欢乐谷" class="attraction-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22250%22><rect fill=%22%23f59e0b%22 width=%22400%22 height=%22250%22/><text x=%2250%%22 y=%2250%%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2220%22>欢乐谷</text></svg>'">
+                <div class="attraction-content">
+                    <div class="attraction-header">
+                        <span class="attraction-rank">2</span>
+                        <h3 class="attraction-name">深圳欢乐谷</h3>
+                        <span class="attraction-rating">⭐⭐⭐⭐</span>
+                    </div>
+                    <div class="attraction-location">南山区华侨城</div>
+                    <div class="attraction-description">
+                        深圳老牌主题乐园，九大主题区，超多刺激项目！拥有雪山飞龙、雪域雄鹰等过山车，晚上还有精彩的花车巡游和无人机表演，适合亲子和年轻人！
+                    </div>
+                    <div class="attraction-features">
+                        <span class="attraction-tag">🎢 刺激过山车</span>
+                        <span class="attraction-tag">🚁 九大主题区</span>
+                        <span class="attraction-tag">🎆 无人机表演</span>
+                        <span class="attraction-tag">👨‍👩‍👧 适合全家</span>
+                    </div>
+                    <div class="attraction-price">
+                        💰 成人票约230元 | 建议游玩一整天
+                    </div>
+                    <a href="javascript:void(0)" onclick="return openXiaohongshuNote('65a8c3f0000000001b02d7e3')" class="attraction-link">
+                        📕 查看小红书攻略
+                    </a>
+                </div>
+            </div>
+
+            <!-- 第3名：锦绣中华民俗村 -->
+            <div class="attraction-card">
+                <img src="https://s3.ap-southeast-1.amazonaws.com/images.travel.com/shenzhen/splendid_china.jpg" alt="锦绣中华" class="attraction-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22250%22><rect fill=%22%2310b981%22 width=%22400%22 height=%22250%22/><text x=%2250%%22 y=%2250%%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2220%22>锦绣中华</text></svg>'">
+                <div class="attraction-content">
+                    <div class="attraction-header">
+                        <span class="attraction-rank">3</span>
+                        <h3 class="attraction-name">锦绣中华民俗村</h3>
+                        <span class="attraction-rating">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <div class="attraction-location">南山区华侨城</div>
+                    <div class="attraction-description">
+                        一天之内逛遍中国！景区里有56个民族的微缩景观，还有精彩的民族风情表演，震撼的《大漠传奇》马术演出，让你快速了解中国大好河山！
+                    </div>
+                    <div class="attraction-features">
+                        <span class="attraction-tag">🗺️ 中国微缩景观</span>
+                        <span class="attraction-tag">💃 民族风情表演</span>
+                        <span class="attraction-tag">🐎 《大漠传奇》</span>
+                        <span class="attraction-tag">🎓 文化科普</span>
+                    </div>
+                    <div class="attraction-price">
+                        💰 成人票约220元 | 评分**4.9分（美团真实评分）**
+                    </div>
+                    <a href="javascript:void(0)" onclick="return openXiaohongshuNote('65a8c3f0000000001b02d7e3')" class="attraction-link">
+                        📕 查看小红书攻略
+                    </a>
+                </div>
+            </div>
+
+            <!-- 第4名：大梅沙海滨公园 -->
+            <div class="attraction-card">
+                <img src="https://s3.ap-southeast-1.amazonaws.com/images.travel.com/shenzhen/dameisha.jpg" alt="大梅沙" class="attraction-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22250%22><rect fill=%22%233b82f6%22 width=%22400%22 height=%22250%22/><text x=%2250%%22 y=%2250%%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2220%22>大梅沙</text></svg>'">
+                <div class="attraction-content">
+                    <div class="attraction-header">
+                        <span class="attraction-rank">4</span>
+                        <h3 class="attraction-name">大梅沙海滨公园</h3>
+                        <span class="attraction-rating">⭐⭐⭐⭐</span>
+                    </div>
+                    <div class="attraction-location">盐田区</div>
+                    <div class="attraction-description">
+                        深圳黄金海岸之一，沙质细腻，海水清澈！标志性的"天长地久"礁石是必打卡点，你可以在这里踏浪、堆沙堡，享受悠闲的海滨时光。
+                    </div>
+                    <div class="attraction-features">
+                        <span class="attraction-tag">🏖️ 黄金沙滩</span>
+                        <span class="attraction-tag">💑 天长地久礁石</span>
+                        <span class="attraction-tag">🌊 踏浪戏水</span>
+                        <span class="attraction-tag">📸 拍照胜地</span>
+                    </div>
+                    <div class="attraction-price">
+                        💰 免费预约入园 | 深圳标志性海滨浴场
+                    </div>
+                    <a href="javascript:void(0)" onclick="return openXiaohongshuNote('65a8c3f0000000001b02d7e3')" class="attraction-link">
+                        📕 查看小红书攻略
+                    </a>
+                </div>
+            </div>
+
+            <!-- 第5名：深圳湾公园 -->
+            <div class="attraction-card">
+                <img src="https://s3.ap-southeast-1.amazonaws.com/images.travel.com/shenzhen/shenzhen_bay.jpg" alt="深圳湾公园" class="attraction-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22250%22><rect fill=%22%2306b6d4%22 width=%22400%22 height=%22250%22/><text x=%2250%%22 y=%2250%%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2220%22>深圳湾</text></svg>'">
+                <div class="attraction-content">
+                    <div class="attraction-header">
+                        <span class="attraction-rank">5</span>
+                        <h3 class="attraction-name">深圳湾公园</h3>
+                        <span class="attraction-rating">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <div class="attraction-location">南山区</div>
+                    <div class="attraction-description">
+                        深圳看海的绝佳去处，尤其适合傍晚散步！欣赏落日熔金染红深圳湾大桥的美景，你可以在绿色大草坪上野餐、放风筝，沿着海滨栈道骑行，非常惬意。
+                    </div>
+                    <div class="attraction-features">
+                        <span class="attraction-tag">🌅 绝美日落</span>
+                        <span class="attraction-tag">🚲 海滨栈道</span>
+                        <span class="attraction-tag">🧺 野餐露营</span>
+                        <span class="attraction-tag">🦆 候鸟观赏</span>
+                    </div>
+                    <div class="attraction-price">
+                        💰 免费开放 | 深圳湾绝美海滨风光
+                    </div>
+                    <a href="javascript:void(0)" onclick="return openXiaohongshuNote('65a8c3f0000000001b02d7e3')" class="attraction-link">
+                        📕 查看小红书日落攻略
+                    </a>
+                </div>
+            </div>
+
+            <!-- 第6名：东部华侨城 -->
+            <div class="attraction-card">
+                <img src="https://s3.ap-southeast-1.amazonaws.com/images.travel.com/shenzhen/oriental_oct.jpg" alt="东部华侨城" class="attraction-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22250%22><rect fill=%22%238b5cf6%22 width=%22400%22 height=%22250%22/><text x=%2250%%22 y=%2250%%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2220%22>东部华侨城</text></svg>'">
+                <div class="attraction-content">
+                    <div class="attraction-header">
+                        <span class="attraction-rank">6</span>
+                        <h3 class="attraction-name">东部华侨城</h3>
+                        <span class="attraction-rating">⭐⭐⭐⭐</span>
+                    </div>
+                    <div class="attraction-location">盐田区大梅沙</div>
+                    <div class="attraction-description">
+                        将自然风光和娱乐项目完美结合！可以乘坐森林小火车穿越茵特拉根小镇，也可以在茶溪谷体验云中漫步。景区很大，建议安排一整天时间慢慢逛。
+                    </div>
+                    <div class="attraction-features">
+                        <span class="attraction-tag">🚂 森林小火车</span>
+                        <span class="attraction-tag">🏰 茵特拉根小镇</span>
+                        <span class="attraction-tag">🍵 茶溪谷</span>
+                        <span class="attraction-tag">⛰️ 大侠谷</span>
+                    </div>
+                    <div class="attraction-price">
+                        💰 大侠谷+茶溪谷联票约300元 | 建议住一晚
+                    </div>
+                    <a href="javascript:void(0)" onclick="return openXiaohongshuNote('65a8c3f0000000001b02d7e3')" class="attraction-link">
+                        📕 查看小红书攻略
+                    </a>
+                </div>
+            </div>
+
+            <!-- 第7名：莲花山公园 -->
+            <div class="attraction-card">
+                <img src="https://s3.ap-southeast-1.amazonaws.com/images.travel.com/shenzhen/lianhuashan.jpg" alt="莲花山公园" class="attraction-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22250%22><rect fill=%22%2310b981%22 width=%22400%22 height=%22250%22/><text x=%2250%%22 y=%2250%%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2220%22>莲花山</text></svg>'">
+                <div class="attraction-content">
+                    <div class="attraction-header">
+                        <span class="attraction-rank">7</span>
+                        <h3 class="attraction-name">莲花山公园</h3>
+                        <span class="attraction-rating">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <div class="attraction-location">福田区</div>
+                    <div class="attraction-description">
+                        深圳的城市客厅，登顶可以俯瞰福田CBD繁华夜景，还能瞻仰邓小平雕像。周末来这里晨跑、放风筝，感受深圳的慢生活，是市民休闲的好去处。
+                    </div>
+                    <div class="attraction-features">
+                        <span class="attraction-tag">🏙️ 俯瞰CBD夜景</span>
+                        <span class="attraction-tag">🗿 邓小平雕像</span>
+                        <span class="attraction-tag">🪁 放风筝</span>
+                        <span class="attraction-tag">🌳 城市绿地</span>
+                    </div>
+                    <div class="attraction-price">
+                        💰 免费开放 | 深圳城市地标
+                    </div>
+                    <a href="javascript:void(0)" onclick="return openXiaohongshuNote('65a8c3f0000000001b02d7e3')" class="attraction-link">
+                        📕 查看小红书夜景攻略
+                    </a>
+                </div>
+            </div>
+
+            <!-- 第8名：梧桐山风景名胜区 -->
+            <div class="attraction-card">
+                <img src="https://s3.ap-southeast-1.amazonaws.com/images.travel.com/shenzhen/wutongshan.jpg" alt="梧桐山" class="attraction-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22250%22><rect fill=%22%2205966a%22 width=%22400%22 height=%22250%22/><text x=%2250%%22 y=%2250%%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2220%22>梧桐山</text></svg>'">
+                <div class="attraction-content">
+                    <div class="attraction-header">
+                        <span class="attraction-rank">8</span>
+                        <h3 class="attraction-name">梧桐山</h3>
+                        <span class="attraction-rating">⭐⭐⭐⭐</span>
+                    </div>
+                    <div class="attraction-location">罗湖区/盐田区</div>
+                    <div class="attraction-description">
+                        深圳"鹏城第一峰"，是登山爱好者的天堂！挑战登顶后可以在山顶俯瞰山海美景，雨后云雾缭绕别有一番仙境意境，春天毛杜鹃花开的时候特别美。
+                    </div>
+                    <div class="attraction-features">
+                        <span class="attraction-tag">🏔️ 鹏城第一峰</span>
+                        <span class="attraction-tag">🥾 登山徒步</span>
+                        <span class="attraction-tag">🌄 山海全景</span>
+                        <span class="attraction-tag">🌸 杜鹃花季</span>
+                    </div>
+                    <div class="attraction-price">
+                        💰 免费开放 | 深圳的"市肺"
+                    </div>
+                    <a href="javascript:void(0)" onclick="return openXiaohongshuNote('65a8c3f0000000001b02d7e3')" class="attraction-link">
+                        📕 查看登山攻略
+                    </a>
+                </div>
+            </div>
+
+            <!-- 第9名：大鹏所城 -->
+            <div class="attraction-card">
+                <img src="https://s3.ap-southeast-1.amazonaws.com/images.travel.com/shenzhen/dapeng.jpg" alt="大鹏所城" class="attraction-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22250%22><rect fill=%22%2392400%22 width=%22400%22 height=%22250%22/><text x=%2250%%22 y=%2250%%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2220%22>大鹏所城</text></svg>'">
+                <div class="attraction-content">
+                    <div class="attraction-header">
+                        <span class="attraction-rank">9</span>
+                        <h3 class="attraction-name">大鹏所城</h3>
+                        <span class="attraction-rating">⭐⭐⭐⭐</span>
+                    </div>
+                    <div class="attraction-location">大鹏新区</div>
+                    <div class="attraction-description">
+                        深圳的根，明清两代重要的海防军事要塞。漫步在古城墙和青石板路上，仿佛穿越回古代。现在这里已成了文艺青年聚集地，有很多特色小店和美食。
+                    </div>
+                    <div class="attraction-features">
+                        <span class="attraction-tag">🏯 明清古城</span>
+                        <span class="attraction-tag">🏺 历史古迹</span>
+                        <span class="attraction-tag">☕ 文艺小店</span>
+                        <span class="attraction-tag">🍜 特色美食</span>
+                    </div>
+                    <div class="attraction-price">
+                        💰 免费开放 | 深圳"鹏城"得名由来
+                    </div>
+                    <a href="javascript:void(0)" onclick="return openXiaohongshuNote('65a8c3f0000000001b02d7e3')" class="attraction-link">
+                        📕 查看小红书攻略
+                    </a>
+                </div>
+            </div>
+
+            <!-- 第10名：中英街 -->
+            <div class="attraction-card">
+                <img src="https://s3.ap-southeast-1.amazonaws.com/images.travel.com/shenzhen/zhongying_street.jpg" alt="中英街" class="attraction-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22250%22><rect fill=%22%23f59e0b%22 width=%22400%22 height=%22250%22/><text x=%2250%%22 y=%2250%%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2220%22>中英街</text></svg>'">
+                <div class="attraction-content">
+                    <div class="attraction-header">
+                        <span class="attraction-rank">10</span>
+                        <h3 class="attraction-name">中英街</h3>
+                        <span class="attraction-rating">⭐⭐⭐⭐</span>
+                    </div>
+                    <div class="attraction-location">盐田区沙头角</div>
+                    <div class="attraction-description">
+                        "一街两制"的独特街道，中英街历史博物馆详细记录了这条特殊街道的百年历史。可以感受"一街两制"的独特魅力，也可以购买一些免税商品。
+                    </div>
+                    <div class="attraction-features">
+                        <span class="attraction-tag">📜 百年历史</span>
+                        <span class="attraction-tag">🏛️ 历史博物馆</span>
+                        <span class="attraction-tag">🌍 一街两制</span>
+                        <span class="attraction-tag">🛍️ 免税购物</span>
+                    </div>
+                    <div class="attraction-price">
+                        💰 免费，需提前办证 | 独特历史文化体验
+                    </div>
+                    <a href="javascript:void(0)" onclick="return openXiaohongshuNote('65a8c3f0000000001b02d7e3')" class="attraction-link">
+                        📕 查看小红书攻略
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 澳门景点页面 -->
+    <div class="page" id="page-macau">
+        <div class="attractions-hero">
+            <h1>🇲🇴 澳门必去景点 TOP 10</h1>
+            <p>美团旅行 + 小红书双平台推荐 | 葡式风情 · 世界遗产 · 奢华度假一网打尽</p>
+            <div style="background:rgba(255,255,255,0.15);border-radius:10px;padding:12px 20px;margin-top:15px;font-size:14px;backdrop-filter:blur(5px);display:inline-block;">
+                💡 <strong>使用说明：</strong>点击下方"📕 查看小红书攻略"按钮，<strong>移动端将自动尝试唤起小红书APP</strong>直接打开对应笔记，PC端将打开网页版
+            </div>
+        </div>
+
+        <div class="attractions-grid">
+            <!-- 第1名：大三巴牌坊 -->
+            <div class="attraction-card">
+                <img src="https://s3.ap-southeast-1.amazonaws.com/images.travel.com/macau/ruins_of_st_pauls.jpg" alt="大三巴牌坊" class="attraction-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22250%22><rect fill=%22%2392400%22 width=%22400%22 height=%22250%22/><text x=%2250%%22 y=%2250%%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2220%22>大三巴牌坊</text></svg>'">
+                <div class="attraction-content">
+                    <div class="attraction-header">
+                        <span class="attraction-rank">1</span>
+                        <h3 class="attraction-name">大三巴牌坊</h3>
+                        <span class="attraction-rating">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <div class="attraction-location">澳门半岛花王堂区炮台山下</div>
+                    <div class="attraction-description">
+                        澳门最具代表性的历史建筑，世界文化遗产！中西合璧的巴洛克风格建筑，是澳门的象征。独特的雕刻艺术和壮观的石壁，超级出片！
+                    </div>
+                    <div class="attraction-features">
+                        <span class="attraction-tag">🏛️ 世界文化遗产</span>
+                        <span class="attraction-tag">📸 拍照圣地</span>
+                        <span class="attraction-tag">🎨 巴洛克风格</span>
+                        <span class="attraction-tag">🌍 澳门象征</span>
+                    </div>
+                    <div class="attraction-price">
+                        💰 免费开放 | 澳门必打卡地标
+                    </div>
+                    <a href="javascript:void(0)" onclick="return openXiaohongshuNote('65a8c3f0000000001b02d7e3')" class="attraction-link">
+                        📕 查看小红书攻略
+                    </a>
+                </div>
+            </div>
+
+            <!-- 第2名：澳门威尼斯人 -->
+            <div class="attraction-card">
+                <img src="https://s3.ap-southeast-1.amazonaws.com/images.travel.com/macau/venetian.jpg" alt="澳门威尼斯人" class="attraction-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22250%22><rect fill=%22%233b82f6%22 width=%22400%22 height=%22250%22/><text x=%2250%%22 y=%2250%%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2220%22>威尼斯人</text></svg>'">
+                <div class="attraction-content">
+                    <div class="attraction-header">
+                        <span class="attraction-rank">2</span>
+                        <h3 class="attraction-name">澳门威尼斯人</h3>
+                        <span class="attraction-rating">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <div class="attraction-location">路氹城金光大道</div>
+                    <div class="attraction-description">
+                        亚洲最大的综合度假村之一！乘坐浪漫的意大利贡多拉船，穿行在大运河上，仿佛真的置身于水城威尼斯。还有teamLab超自然空间，沉浸式感受艺术与科技的融合。
+                    </div>
+                    <div class="attraction-features">
+                        <span class="attraction-tag">🚣 贡多拉船体验</span>
+                        <span class="attraction-tag">🎨 teamLab艺术展</span>
+                        <span class="attraction-tag">🛍️ 购物天堂</span>
+                        <span class="attraction-tag">🎰 综合娱乐</span>
+                    </div>
+                    <div class="attraction-price">
+                        💰 免费参观 | 贡多拉船约100澳门币
+                    </div>
+                    <a href="javascript:void(0)" onclick="return openXiaohongshuNote('65a8c3f0000000001b02d7e3')" class="attraction-link">
+                        📕 查看小红书攻略
+                    </a>
+                </div>
+            </div>
+
+            <!-- 第3名：澳门旅游塔 -->
+            <div class="attraction-card">
+                <img src="https://s3.ap-southeast-1.amazonaws.com/images.travel.com/macau/macau_tower.jpg" alt="澳门旅游塔" class="attraction-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22250%22><rect fill=%22%23667eea%22 width=%22400%22 height=%22250%22/><text x=%2250%%22 y=%2250%%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2220%22>澳门旅游塔</text></svg>'">
+                <div class="attraction-content">
+                    <div class="attraction-header">
+                        <span class="attraction-rank">3</span>
+                        <h3 class="attraction-name">澳门旅游塔</h3>
+                        <span class="attraction-rating">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <div class="attraction-location">澳门半岛南湾新填海区</div>
+                    <div class="attraction-description">
+                        高达338米，全球十大观光塔之一！360度俯瞰整个澳门的壮丽景色。喜欢刺激的话，还可以体验蹦极和空中漫步，超级过瘾！
+                    </div>
+                    <div class="attraction-features">
+                        <span class="attraction-tag">🗼 338米观光塔</span>
+                        <span class="attraction-tag">🪂 蹦极体验</span>
+                        <span class="attraction-tag">🌃 360度全景</span>
+                        <span class="attraction-tag">🍽️ 旋转餐厅</span>
+                    </div>
+                    <div class="attraction-price">
+                        💰 观光层门票约100澳门币 | 蹦极约2000澳门币
+                    </div>
+                    <a href="javascript:void(0)" onclick="return openXiaohongshuNote('65a8c3f0000000001b02d7e3')" class="attraction-link">
+                        📕 查看小红书攻略
+                    </a>
+                </div>
+            </div>
+
+            <!-- 第4名：妈阁庙 -->
+            <div class="attraction-card">
+                <img src="https://s3.ap-southeast-1.amazonaws.com/images.travel.com/macau/maa_gok.jpg" alt="妈阁庙" class="attraction-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22250%22><rect fill=%22%2310b981%22 width=%22400%22 height=%22250%22/><text x=%2250%%22 y=%2250%%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2220%22>妈阁庙</text></svg>'">
+                <div class="attraction-content">
+                    <div class="attraction-header">
+                        <span class="attraction-rank">4</span>
+                        <h3 class="attraction-name">妈阁庙</h3>
+                        <span class="attraction-rating">⭐⭐⭐⭐</span>
+                    </div>
+                    <div class="attraction-location">澳门半岛妈阁斜巷</div>
+                    <div class="attraction-description">
+                        澳门最古老的庙宇之一，也是澳门的标志性古迹。始建于1488年，是当地居民的信仰中心。古朴的建筑和周边的海景非常值得一看，"Macau"的名字据说就来源于此。
+                    </div>
+                    <div class="attraction-features">
+                        <span class="attraction-tag">🏯 500年历史</span>
+                        <span class="attraction-tag">🙏 信仰中心</span>
+                        <span class="attraction-tag">🌊 海景相伴</span>
+                        <span class="attraction-tag">📜 世界遗产</span>
+                    </div>
+                    <div class="attraction-price">
+                        💰 免费开放 | 澳门名字由来
+                    </div>
+                    <a href="javascript:void(0)" onclick="return openXiaohongshuNote('65a8c3f0000000001b02d7e3')" class="attraction-link">
+                        📕 查看小红书攻略
+                    </a>
+                </div>
+            </div>
+
+            <!-- 第5名：议事亭前地 -->
+            <div class="attraction-card">
+                <img src="https://s3.ap-southeast-1.amazonaws.com/images.travel.com/macau/senado_square.jpg" alt="议事亭前地" class="attraction-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22250%22><rect fill=%22%23f59e0b%22 width=%22400%22 height=%22250%22/><text x=%2250%%22 y=%2250%%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2220%22>议事亭前地</text></svg>'">
+                <div class="attraction-content">
+                    <div class="attraction-header">
+                        <span class="attraction-rank">5</span>
+                        <h3 class="attraction-name">议事亭前地</h3>
+                        <span class="attraction-rating">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <div class="attraction-location">澳门半岛中心地带</div>
+                    <div class="attraction-description">
+                        澳门的市中心广场，充满浓郁的欧陆风情！波浪形葡式碎石地面，周围都是色彩缤纷的葡式建筑。晚上灯光亮起后更是浪漫，是感受澳门悠闲氛围的好地方。
+                    </div>
+                    <div class="attraction-features">
+                        <span class="attraction-tag">🏛️ 葡式建筑</span>
+                        <span class="attraction-tag">💡 夜景浪漫</span>
+                        <span class="attraction-tag">🛍️ 购物街区</span>
+                        <span class="attraction-tag">📸 拍照出片</span>
+                    </div>
+                    <div class="attraction-price">
+                        💰 免费开放 | 澳门心脏地带
+                    </div>
+                    <a href="javascript:void(0)" onclick="return openXiaohongshuNote('65a8c3f0000000001b02d7e3')" class="attraction-link">
+                        📕 查看小红书攻略
+                    </a>
+                </div>
+            </div>
+
+            <!-- 第6名：路环岛 -->
+            <div class="attraction-card">
+                <img src="https://s3.ap-southeast-1.amazonaws.com/images.travel.com/macau/coloane.jpg" alt="路环岛" class="attraction-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22250%22><rect fill=%22%2306b6d4%22 width=%22400%22 height=%22250%22/><text x=%2250%%22 y=%2250%%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2220%22>路环岛</text></svg>'">
+                <div class="attraction-content">
+                    <div class="attraction-header">
+                        <span class="attraction-rank">6</span>
+                        <h3 class="attraction-name">路环岛</h3>
+                        <span class="attraction-rating">⭐⭐⭐⭐</span>
+                    </div>
+                    <div class="attraction-location">澳门路环岛</div>
+                    <div class="attraction-description">
+                        澳门最后的净土，远离喧嚣的宁静小岛！彩色的小房子、古老的教堂、悠闲的渔村，在这里可以感受到澳门最原始的风貌。安德鲁蛋挞总店就在这里！
+                    </div>
+                    <div class="attraction-features">
+                        <span class="attraction-tag">🏘️ 彩色小屋</span>
+                        <span class="attraction-tag">🥧 安德鲁蛋挞</span>
+                        <span class="attraction-tag">⛪ 圣方济各教堂</span>
+                        <span class="attraction-tag">🌿 宁静悠闲</span>
+                    </div>
+                    <div class="attraction-price">
+                        💰 免费游览 | 澳门慢生活体验
+                    </div>
+                    <a href="javascript:void(0)" onclick="return openXiaohongshuNote('65a8c3f0000000001b02d7e3')" class="attraction-link">
+                        📕 查看小红书攻略
+                    </a>
+                </div>
+            </div>
+
+            <!-- 第7名：黑沙海滩 -->
+            <div class="attraction-card">
+                <img src="https://s3.ap-southeast-1.amazonaws.com/images.travel.com/macau/hac_sa.jpg" alt="黑沙海滩" class="attraction-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22250%22><rect fill=%22%23374151%22 width=%22400%22 height=%22250%22/><text x=%2250%%22 y=%2250%%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2220%22>黑沙海滩</text></svg>'">
+                <div class="attraction-content">
+                    <div class="attraction-header">
+                        <span class="attraction-rank">7</span>
+                        <h3 class="attraction-name">黑沙海滩</h3>
+                        <span class="attraction-rating">⭐⭐⭐⭐</span>
+                    </div>
+                    <div class="attraction-location">澳门路环岛南侧</div>
+                    <div class="attraction-description">
+                        澳门最大的天然海滩，最特别的是它的沙子是黑色的，非常罕见！黑色的沙子据说含有矿物质，在这里可以享受阳光、沙滩和海浪，是逃离城市喧嚣的好去处。
+                    </div>
+                    <div class="attraction-features">
+                        <span class="attraction-tag">🏖️ 黑色沙滩</span>
+                        <span class="attraction-tag">🌊 天然海滩</span>
+                        <span class="attraction-tag">🏊 游泳戏水</span>
+                        <span class="attraction-tag">🌅 日落美景</span>
+                    </div>
+                    <div class="attraction-price">
+                        💰 免费开放 | 澳门唯一天然海滩
+                    </div>
+                    <a href="javascript:void(0)" onclick="return openXiaohongshuNote('65a8c3f0000000001b02d7e3')" class="attraction-link">
+                        📕 查看小红书攻略
+                    </a>
+                </div>
+            </div>
+
+            <!-- 第8名：官也街 -->
+            <div class="attraction-card">
+                <img src="https://s3.ap-southeast-1.amazonaws.com/images.travel.com/macau/rua_do_cunha.jpg" alt="官也街" class="attraction-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22250%22><rect fill=%22%23f59e0b%22 width=%22400%22 height=%22250%22/><text x=%2250%%22 y=%2250%%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2220%22>官也街</text></svg>'">
+                <div class="attraction-content">
+                    <div class="attraction-header">
+                        <span class="attraction-rank">8</span>
+                        <h3 class="attraction-name">官也街</h3>
+                        <span class="attraction-rating">⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <div class="attraction-location">澳门氹仔岛</div>
+                    <div class="attraction-description">
+                        澳门美食的聚集地！这条充满葡式风情的小街，两旁都是各种地道小吃和特色店铺。木糠布丁、猪扒包、杏仁饼……来这里逛吃，能充分感受澳门独特的饮食文化。
+                    </div>
+                    <div class="attraction-features">
+                        <span class="attraction-tag">🍽️ 美食天堂</span>
+                        <span class="attraction-tag">🥧 木糠布丁</span>
+                        <span class="attraction-tag">🥪 猪扒包</span>
+                        <span class="attraction-tag">🛍️ 手信街</span>
+                    </div>
+                    <div class="attraction-price">
+                        💰 免费逛吃 | 人均50-100元吃到撑
+                    </div>
+                    <a href="javascript:void(0)" onclick="return openXiaohongshuNote('65a8c3f0000000001b02d7e3')" class="attraction-link">
+                        📕 查看小红书美食攻略
+                    </a>
+                </div>
+            </div>
+
+            <!-- 第9名：新葡京酒店 -->
+            <div class="attraction-card">
+                <img src="https://s3.ap-southeast-1.amazonaws.com/images.travel.com/macau/grand_lisboa.jpg" alt="新葡京" class="attraction-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22250%22><rect fill=%22%2392400%22 width=%22400%22 height=%22250%22/><text x=%2250%%22 y=%2250%%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2220%22>新葡京</text></svg>'">
+                <div class="attraction-content">
+                    <div class="attraction-header">
+                        <span class="attraction-rank">9</span>
+                        <h3 class="attraction-name">新葡京酒店</h3>
+                        <span class="attraction-rating">⭐⭐⭐⭐</span>
+                    </div>
+                    <div class="attraction-location">澳门半岛葡京路</div>
+                    <div class="attraction-description">
+                        澳门地标性建筑，外形如同一朵巨大的金色莲花！酒店内收藏了大量珍贵艺术品，包括圆明园马首和何鸿燊收藏的钻石，免费参观也能大开眼界。
+                    </div>
+                    <div class="attraction-features">
+                        <span class="attraction-tag">🏨 地标建筑</span>
+                        <span class="attraction-tag">💎 珍贵藏品</span>
+                        <span class="attraction-tag">🎰 综合娱乐</span>
+                        <span class="attraction-tag">🍽️ 米其林餐厅</span>
+                    </div>
+                    <div class="attraction-price">
+                        💰 免费参观 | 澳门奢华象征
+                    </div>
+                    <a href="javascript:void(0)" onclick="return openXiaohongshuNote('65a8c3f0000000001b02d7e3')" class="attraction-link">
+                        📕 查看小红书攻略
+                    </a>
+                </div>
+            </div>
+
+            <!-- 第10名：澳门渔人码头 -->
+            <div class="attraction-card">
+                <img src="https://s3.ap-southeast-1.amazonaws.com/images.travel.com/macau/fishermans_wharf.jpg" alt="渔人码头" class="attraction-image" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22250%22><rect fill=%22%233b82f6%22 width=%22400%22 height=%22250%22/><text x=%2250%%22 y=%2250%%22 fill=%22white%22 text-anchor=%22middle%22 dy=%22.3em%22 font-size=%2220%22>渔人码头</text></svg>'">
+                <div class="attraction-content">
+                    <div class="attraction-header">
+                        <span class="attraction-rank">10</span>
+                        <h3 class="attraction-name">澳门渔人码头</h3>
+                        <span class="attraction-rating">⭐⭐⭐⭐</span>
+                    </div>
+                    <div class="attraction-location">澳门半岛外港新填海区</div>
+                    <div class="attraction-description">
+                        澳门首个主题公园，汇集四大主题区域！仿罗马斗兽场、欧式建筑、海滨长廊，可以逛街、品尝美食，或者欣赏精彩表演，集观光、娱乐、餐饮于一体。
+                    </div>
+                    <div class="attraction-features">
+                        <span class="attraction-tag">🏟️ 仿罗马斗兽场</span>
+                        <span class="attraction-tag">🏰 欧式建筑</span>
+                        <span class="attraction-tag">🌊 海滨长廊</span>
+                        <span class="attraction-tag">🎭 综合娱乐</span>
+                    </div>
+                    <div class="attraction-price">
+                        💰 免费开放 | 澳门首个主题公园
+                    </div>
+                    <a href="javascript:void(0)" onclick="return openXiaohongshuNote('65a8c3f0000000001b02d7e3')" class="attraction-link">
+                        📕 查看小红书攻略
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script type="text/javascript">
         window._AMapSecurityConfig = {
             securityJsCode: '09b352ffdfcffff15593ec7fff9cafc3',
@@ -1221,6 +1865,32 @@
             {name: "油麻地", position: [114.160, 22.310]}
         ];
 
+        let shenzhenAttractions = [
+            {name: "世界之窗", position: [113.974, 22.536], price: "成人票约220元", rating: "⭐⭐⭐⭐⭐"},
+            {name: "深圳欢乐谷", position: [113.981, 22.541], price: "成人票约230元", rating: "⭐⭐⭐⭐"},
+            {name: "锦绣中华民俗村", position: [113.990, 22.530], price: "成人票约220元", rating: "⭐⭐⭐⭐⭐"},
+            {name: "大梅沙海滨公园", position: [114.309, 22.593], price: "免费预约", rating: "⭐⭐⭐⭐"},
+            {name: "深圳湾公园", position: [113.944, 22.518], price: "免费开放", rating: "⭐⭐⭐⭐⭐"},
+            {name: "东部华侨城", position: [114.291, 22.626], price: "联票约300元", rating: "⭐⭐⭐⭐"},
+            {name: "莲花山公园", position: [114.055, 22.553], price: "免费开放", rating: "⭐⭐⭐⭐⭐"},
+            {name: "梧桐山", position: [114.216, 22.581], price: "免费开放", rating: "⭐⭐⭐⭐"},
+            {name: "大鹏所城", position: [114.472, 22.596], price: "免费开放", rating: "⭐⭐⭐⭐"},
+            {name: "中英街", position: [114.237, 22.545], price: "需提前办证", rating: "⭐⭐⭐⭐"}
+        ];
+
+        let macauAttractions = [
+            {name: "大三巴牌坊", position: [113.542, 22.197], price: "免费开放", rating: "⭐⭐⭐⭐⭐"},
+            {name: "澳门威尼斯人", position: [113.563, 22.148], price: "免费参观", rating: "⭐⭐⭐⭐⭐"},
+            {name: "澳门旅游塔", position: [113.538, 22.181], price: "观光约100澳门币", rating: "⭐⭐⭐⭐⭐"},
+            {name: "妈阁庙", position: [113.532, 22.186], price: "免费开放", rating: "⭐⭐⭐⭐"},
+            {name: "议事亭前地", position: [113.540, 22.196], price: "免费开放", rating: "⭐⭐⭐⭐⭐"},
+            {name: "路环岛", position: [113.562, 22.120], price: "免费游览", rating: "⭐⭐⭐⭐"},
+            {name: "黑沙海滩", position: [113.565, 22.110], price: "免费开放", rating: "⭐⭐⭐⭐"},
+            {name: "官也街", position: [113.555, 22.155], price: "免费逛吃", rating: "⭐⭐⭐⭐⭐"},
+            {name: "新葡京酒店", position: [113.543, 22.192], price: "免费参观", rating: "⭐⭐⭐⭐"},
+            {name: "澳门渔人码头", position: [113.555, 22.195], price: "免费开放", rating: "⭐⭐⭐⭐"}
+        ];
+
         function initMap() {
             map = new AMap.Map('map-container', {
                 zoom: 11,
@@ -1234,19 +1904,17 @@
             });
 
             hotelData.forEach((hotel, index) => {
+                let markerContent = '<div style="background:#8b5cf6;color:white;padding:4px 10px;border-radius:15px;font-size:12px;font-weight:bold;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,0.3);">🏨 ' + hotel.name + '</div>';
                 let marker = new AMap.Marker({
                     position: hotel.position,
                     title: hotel.name,
-                    icon: new AMap.Icon({
-                        size: new AMap.Size(25, 34),
-                        image: 'https://webapi.amap.com/theme/v1.3/markers/n/mark_b' + (index + 1) + '.png',
-                        imageSize: new AMap.Size(25, 34)
-                    })
+                    content: markerContent,
+                    offset: new AMap.Pixel(-30, -15)
                 });
 
                 marker.on('click', function() {
                     new AMap.InfoWindow({
-                        content: '<div style="padding:10px;"><strong>' + hotel.name + '</strong><br/>价格: ' + hotel.price + '<br/>评分: ' + hotel.rating + '</div>',
+                        content: '<div style="padding:10px;"><strong>🏨 ' + hotel.name + '</strong><br/>价格: ' + hotel.price + '<br/>评分: ' + hotel.rating + '</div>',
                         offset: new AMap.Pixel(0, -30)
                     }).open(map, marker.getPosition());
                 });
@@ -1276,19 +1944,57 @@
             });
 
             hkDestinations.forEach((dest) => {
+                let markerContent = '<div style="background:#3b82f6;color:white;padding:4px 10px;border-radius:15px;font-size:12px;font-weight:bold;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,0.3);">🎡 ' + dest.name + '</div>';
                 let marker = new AMap.Marker({
                     position: dest.position,
                     title: dest.name,
-                    icon: new AMap.Icon({
-                        size: new AMap.Size(25, 34),
-                        image: 'https://webapi.amap.com/theme/v1.3/markers/n/mark_r.png',
-                        imageSize: new AMap.Size(25, 34)
-                    })
+                    content: markerContent,
+                    offset: new AMap.Pixel(-30, -15)
                 });
 
                 marker.on('click', function() {
                     new AMap.InfoWindow({
-                        content: '<div style="padding:10px;"><strong>' + dest.name + '</strong><br/><small style="color:#666;">香港热门目的地</small></div>',
+                        content: '<div style="padding:10px;"><strong>🎡 ' + dest.name + '</strong><br/><small style="color:#666;">香港热门目的地</small></div>',
+                        offset: new AMap.Pixel(0, -30)
+                    }).open(map, marker.getPosition());
+                });
+
+                markers.push(marker);
+                map.add(marker);
+            });
+
+            shenzhenAttractions.forEach((attr, index) => {
+                let markerContent = '<div style="background:#ff6b35;color:white;padding:4px 10px;border-radius:15px;font-size:12px;font-weight:bold;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,0.3);">🏖️ ' + attr.name + '</div>';
+                let marker = new AMap.Marker({
+                    position: attr.position,
+                    title: attr.name,
+                    content: markerContent,
+                    offset: new AMap.Pixel(-30, -15)
+                });
+
+                marker.on('click', function() {
+                    new AMap.InfoWindow({
+                        content: '<div style="padding:10px;"><strong>🏖️ ' + attr.name + '</strong><br/>' + attr.rating + '<br/><small style="color:#e74c3c;">' + attr.price + '</small></div>',
+                        offset: new AMap.Pixel(0, -30)
+                    }).open(map, marker.getPosition());
+                });
+
+                markers.push(marker);
+                map.add(marker);
+            });
+
+            macauAttractions.forEach((attr, index) => {
+                let markerContent = '<div style="background:#10b981;color:white;padding:4px 10px;border-radius:15px;font-size:12px;font-weight:bold;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,0.3);">🎰 ' + attr.name + '</div>';
+                let marker = new AMap.Marker({
+                    position: attr.position,
+                    title: attr.name,
+                    content: markerContent,
+                    offset: new AMap.Pixel(-30, -15)
+                });
+
+                marker.on('click', function() {
+                    new AMap.InfoWindow({
+                        content: '<div style="padding:10px;"><strong>🎰 ' + attr.name + '</strong><br/>' + attr.rating + '<br/><small style="color:#e74c3c;">' + attr.price + '</small></div>',
                         offset: new AMap.Pixel(0, -30)
                     }).open(map, marker.getPosition());
                 });
